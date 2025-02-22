@@ -1,22 +1,25 @@
 import ParticleBg from '../../Particles/ParticleBg';
-import vid from "../../assets/astronaut-huemor-safari.mp4";
+import vid from "../../assets/astronaut-huemor-chrome.webm";
 
 const Banner = () => {
     return (
-        <div className="relative z-0 bg-slate-950 h-screen flex justify-center items-center overflow-hidden">
+        <div className="relative z-0  bg-gradient-to-r from-[#1a041f] to-[#05000a] h-screen flex justify-center items-center overflow-hidden">
 
-            {/* 🎥 Background Video */}
-            <video
-                src={vid}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover z-15"
-            />
+            {/* 🎥 Background Video (Fixed Position & Performance Optimized) */}
+            <div className="fixed inset-0 w-full h-screen z-10 overflow-hidden pointer-events-none">
+                <video
+                    src={vid}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover opacity-70"
+                    style={{ objectFit: 'cover' }}
+                />
+            </div>
 
             {/* ✨ Starry Particles Overlay */}
-            <div className="absolute inset-0 z-20">
+            <div className="absolute inset-0 z-20 pointer-events-none">
                 <ParticleBg />
             </div>
 
@@ -41,32 +44,6 @@ const Banner = () => {
                         Learn More
                     </button>
                 </div>
-                {/* <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                    <div className="bg-slate-900 bg-opacity-50 p-6 rounded-xl shadow-lg">
-                        <h3 className="text-xl font-semibold">🌐 Web Development</h3>
-                        <p className="text-sm text-gray-400 mt-2">
-                            High-performance web solutions crafted with React, Vite, and modern frameworks.
-                        </p>
-                    </div>
-                    <div className="bg-slate-900 bg-opacity-50 p-6 rounded-xl shadow-lg">
-                        <h3 className="text-xl font-semibold">📱 Mobile Solutions</h3>
-                        <p className="text-sm text-gray-400 mt-2">
-                            Robust mobile applications delivering seamless user experiences across platforms.
-                        </p>
-                    </div>
-                    <div className="bg-slate-900 bg-opacity-50 p-6 rounded-xl shadow-lg">
-                        <h3 className="text-xl font-semibold">☁️ Cloud Integration</h3>
-                        <p className="text-sm text-gray-400 mt-2">
-                            Scalable cloud solutions designed to optimize performance and reduce costs.
-                        </p>
-                    </div>
-                    <div className="bg-slate-900 bg-opacity-50 p-6 rounded-xl shadow-lg">
-                        <h3 className="text-xl font-semibold">🔒 Cybersecurity</h3>
-                        <p className="text-sm text-gray-400 mt-2">
-                            Cutting-edge security practices to safeguard your digital assets and data.
-                        </p>
-                    </div>
-                </div> */}
             </div>
         </div>
     );

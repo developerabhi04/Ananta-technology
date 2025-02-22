@@ -1,6 +1,6 @@
 const Services = () => {
   return (
-    <section className="relative z-10 bg-gradient-to-r from-gray-800 to-gray-900 py-20 px-6 sm:px-16 text-white">
+    <section className="relative z-10 bg-gradient-to-r from-[#0c0120] to-[#241533] py-20 px-6 sm:px-16 text-white">
       <div className="max-w-7xl mx-auto text-center space-y-8">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg">
           Our <span className="text-[#915EFF]">Services</span>

@@ -12,7 +12,7 @@ const ParticleBg = () => {
       init={particlesInit}
       options={{
         background: {
-          // color: { value: "linear-gradient(to right, #cc2b5e, #753a88)" }, // Dark night sky
+           color: { value: "linear-gradient(to right, #cc2b5e, #753a88)" }, // Dark night sky
         },
         fpsLimit: 60,
         particles: {
