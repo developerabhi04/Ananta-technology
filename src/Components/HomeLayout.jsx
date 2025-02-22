@@ -1,5 +1,5 @@
 import About from "../Pages/Home/About"
-import Banner from "../Pages/Home/banner"
+import Banner from "../Pages/Home/Banner"
 import Contact from "../Pages/Home/Contact"
 import Projects from "../Pages/Home/Projects"
 import Services from "../Pages/Home/Services"
