@@ -1,11 +1,24 @@
+import Bottomline from "../../Components/BottomLine/Bottomline";
+import {motion} from "framer-motion"
 
 const About = () => {
     return (
-        <section className="relative z-10 bg-gradient-to-r from-[#241533] to-[#0c0120] py-20 px-6 sm:px-16 text-white">
-            <div className="max-w-7xl mx-auto text-center space-y-8">
+        <section className="relative z-10 bg-gradient-to-r from-[#241533] to-[#0c0120] py-20 px-6 sm:px-16 text-white" id="about">
+            <div className="max-w-7xl mx-auto text-center space-y-8"> 
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg">
                     About <span className="text-[#915EFF]">Ananta</span> Technologies
                 </h2>
+
+                {/* 🎯 BottomLine shown immediately with animation */}
+                <motion.div
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="z-40"
+                >
+                    <Bottomline />
+                </motion.div>
+                
                 <p className="text-lg sm:text-xl lg:text-2xl text-gray-400 leading-relaxed max-w-4xl mx-auto">
                     At Ananta Technologies, we are dedicated to delivering cutting-edge IT solutions that empower businesses to thrive in a digital-first world. Our mission is to provide scalable, secure, and high-performance applications tailored to meet the unique needs of startups, SMBs, and enterprises.
                 </p>

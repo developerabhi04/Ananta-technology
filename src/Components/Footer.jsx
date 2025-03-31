@@ -1,6 +1,31 @@
+import { Email, LocationCity, Phone } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 
 const Footer = () => {
+  const url = useNavigate();
+
+
+  const copyRightUrl = () => {
+    url("/copyright");
+  }
+
+  const termsUrl = () => {
+    url("/terms-of-use");
+  }
+
+  const privacyUrl = () => {
+    url("/privacy");
+  }
+
+  const policyUrl = () => {
+    url("/policy");
+  }
+
+
+
+
+
   return (
     <footer className="relative z-10 bg-gradient-to-r from-gray-900 to-gray-800 py-16 px-6 sm:px-16 text-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
@@ -14,13 +39,12 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
+          <h3 className="text-xl font-semibold mb-4">Support</h3>
           <ul className="space-y-3 text-gray-400">
-            <li className="hover:text-white transition-colors duration-300 cursor-pointer">Home</li>
-            <li className="hover:text-white transition-colors duration-300 cursor-pointer">About Us</li>
-            <li className="hover:text-white transition-colors duration-300 cursor-pointer">Services</li>
-            <li className="hover:text-white transition-colors duration-300 cursor-pointer">Projects</li>
-            <li className="hover:text-white transition-colors duration-300 cursor-pointer">Careers</li>
+            <li className="hover:text-white transition-colors duration-300 cursor-pointer" onClick={termsUrl}>Terms of Use</li>
+            <li className="hover:text-white transition-colors duration-300 cursor-pointer" onClick={privacyUrl}>Privacy Statement</li>
+            <li className="hover:text-white transition-colors duration-300 cursor-pointer" onClick={policyUrl}>Policy</li>
+            <li className="hover:text-white transition-colors duration-300 cursor-pointer" onClick={copyRightUrl}>Copyright</li>
           </ul>
         </div>
 
@@ -38,15 +62,15 @@ const Footer = () => {
         {/* Contact Details & Social Media */}
         <div>
           <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-          <p className="text-gray-400 text-sm">📞 +1 234 567 890</p>
-          <p className="text-gray-400 text-sm">📧 info@anantatech.com</p>
-          <p className="text-gray-400 text-sm">📍 Silicon Valley, CA, USA</p>
-          <div className="flex justify-center sm:justify-start gap-4 mt-4">
+          <p className="text-gray-400 text-sm py-1"><Phone  sx={{ fontSize: 18, color: '#915EFF'}}/> +1 234 567 890</p>
+          <p className="text-gray-400 text-sm py-1"><Email sx={{ fontSize: 18, color: '#915EFF' }} /> work.anantatechnologies@gmail.com</p>
+          <p className="text-gray-400 text-sm py-1"><LocationCity sx={{ fontSize: 18, color: '#915EFF' }} /> RZB-214 Old Meheauli road, Raj Nagar, New Delhi, Delhi, 110045, India.</p>
+          {/* <div className="flex justify-center sm:justify-start gap-4 mt-4">
             <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 text-2xl">🌐</a>
             <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 text-2xl">🐦</a>
             <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 text-2xl">💼</a>
             <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 text-2xl">📸</a>
-          </div>
+          </div> */}
         </div>
       </div>
 

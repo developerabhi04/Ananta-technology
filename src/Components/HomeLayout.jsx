@@ -1,18 +1,33 @@
+import { Helmet } from "react-helmet-async"
 import About from "../Pages/Home/About"
 import Banner from "../Pages/Home/Banner"
 import Contact from "../Pages/Home/Contact"
 import Projects from "../Pages/Home/Projects"
 import Services from "../Pages/Home/Services"
+import UserOption from "./UserOption"
 
 
 const HomeLayout = () => {
   return (
     <>
+      <Helmet>
+        <title>Ananta Technologies | Innovative Web & Software Solutions</title>
+        <meta name="description" content="Ananta Technologies offers tailored web development, cloud solutions, data analytics, and digital marketing services to drive your business growth." />
+        <meta name="keywords" content="Ananta Technologies, Web Development, Cloud Solutions, Data Analytics, Digital Marketing, UI/UX Design" />
+        <meta name="author" content="Ananta Technologies" />
+        <meta property="og:title" content="Ananta Technologies | Empowering Your Business Digitally" />
+        <meta property="og:description" content="We provide tailored IT solutions including web development, mobile apps, and cloud services to accelerate your business growth." />
+        <meta property="og:image" content="/assets/brand-logo.png" />
+        <meta property="og:url" content="https://www.anantatechnologies.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://www.anantatechnologies.com/" />
+      </Helmet>
       <Banner />
       <About />
       <Services />
       <Projects />
       <Contact />
+      <UserOption />
     </>
   )
 }

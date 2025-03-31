@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import logo from "../../assets/Ananta Technology.png";
 import { Menu, Close } from "@mui/icons-material";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Navigation links
 const navLinks = [
-  { id: "Home", title: "Home" },
-  { id: "about", title: "About" },
-  { id: "Services", title: "Services" },
-  { id: "Projects", title: "Projects" },
-  { id: "contact", title: "Contact" },
+  { id: "Home", title: "Home", href: "/" },
+  { id: "about", title: "About", href: "#about" },
+  { id: "services", title: "Services", href: "#services" },
+  { id: "projects", title: "Projects", href: "#projects" },
+  { id: "contact", title: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -27,7 +28,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 z-30 w-full py-3 transition-all duration-300 ${scrolled ? "bg-slate-950 shadow-lg" : "bg-transparent"
         } px-6 sm:px-16`}
     >
@@ -41,30 +45,41 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img
+          <motion.img
             src={logo}
             alt="logo"
             className="h-16 w-auto sm:h-20 object-contain"
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "tween", stiffness: 900 }}
           />
         </Link>
 
         {/* Desktop Nav Links */}
         <ul className="hidden sm:flex list-none gap-10">
           {navLinks.map((nav) => (
-            <li
+            <motion.li
               key={nav.id}
-              className={`cursor-pointer text-lg font-medium transition-colors ${active === nav.title
-                  ? "text-white"
-                  : "text-gray-400 hover:text-white"
+              className={`relative cursor-pointer text-lg font-medium transition-colors ${active === nav.title
+                ? "text-white"
+                : "text-gray-400 hover:text-white"
                 }`}
               onClick={() => setActive(nav.title)}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
-            </li>
+              {/* Hover underline animation */}
+              <motion.div
+                className="absolute bottom-0 left-0 h-[2px] bg-[#915EFF] w-full"
+                initial={{ width: 0 }}
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.9, ease: "easeInOut" }}
+              />
+            </motion.li>
           ))}
         </ul>
 
-        {/* Mobile Menu with Material Icons */}
+        {/* Mobile Menu with Animation */}
         <div className="sm:hidden flex items-center">
           {toggle ? (
             <Close
@@ -79,31 +94,40 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Mobile Dropdown Menu */}
-        <div
-          className={`${!toggle ? "hidden" : "flex"
-            } absolute top-20 right-0 z-20 mx-4 my-2 w-2/3 flex-col rounded-lg bg-slate-900 p-6 shadow-lg transition-transform duration-300`}
-        >
-          <ul className="flex flex-col gap-6 text-white font-medium">
-            {navLinks.map((nav) => (
-              <li
-                key={nav.id}
-                className={`cursor-pointer text-base font-medium ${active === nav.title
-                    ? "text-[#915EFF]"
-                    : "text-gray-400 hover:text-white"
-                  }`}
-                onClick={() => {
-                  setToggle(false);
-                  setActive(nav.title);
-                }}
-              >
-                <a href={`#${nav.id}`}>{nav.title}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Animated Mobile Dropdown */}
+        <AnimatePresence>
+          {toggle && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="absolute top-20 right-0 z-20 mx-4 my-2 w-2/3 flex-col rounded-lg bg-slate-900 p-6 shadow-lg transition-transform duration-300"
+            >
+              <ul className="flex flex-col gap-6 text-white font-medium">
+                {navLinks.map((nav) => (
+                  <motion.li
+                    key={nav.id}
+                    className={`cursor-pointer text-base font-medium ${active === nav.title
+                      ? "text-[#915EFF]"
+                      : "text-gray-400 hover:text-white"
+                      }`}
+                    onClick={() => {
+                      setToggle(false);
+                      setActive(nav.title);
+                    }}
+                    whileHover={{ x: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <a href={`#${nav.id}`}>{nav.title}</a>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
