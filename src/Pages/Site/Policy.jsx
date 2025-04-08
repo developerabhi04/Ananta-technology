@@ -1,7 +1,7 @@
 
 const Policy = () => {
     return (
-        <div className="bg-white text-gray-800 px-6 py-24 lg:px-20 max-w-5xl mx-auto">
+        <section className="relative z-10  pt-36 bg-gradient-to-r from-[#241533] to-[#0c0120] py-20 px-6 sm:px-16 text-white" id="about">
             {/* Header */}
             <header className="mb-12">
                 <h1 className="text-4xl font-bold mb-2">Refund & Cancellation Policy</h1>
@@ -60,7 +60,7 @@ const Policy = () => {
             <footer className="pt-10 border-t mt-12 text-sm text-gray-600">
                 <p>This policy is subject to change without prior notice. Please review this page periodically for updates.</p>
             </footer>
-        </div>
+        </section>
     );
 };
 
