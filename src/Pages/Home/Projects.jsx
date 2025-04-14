@@ -1,11 +1,16 @@
+
+import Bottomline from "../../Components/BottomLine/Bottomline";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+
+// ---- Import project images ----
 import project1 from "../../assets/Projects/project1.png";
 import project2 from "../../assets/Projects/project2.png";
 import project3 from "../../assets/Projects/project3.png";
-import project4 from "../../assets/Projects/project7.png";
+import project4 from "../../assets/Projects/project7.png"
 import project5 from "../../assets/Projects/project8.png";
 import project6 from "../../assets/Projects/project9.png";
-import { motion } from "framer-motion";
-import Bottomline from "../../Components/BottomLine/Bottomline";
 
 // 🎬 Animation Variants
 const containerVariants = {
@@ -21,10 +26,14 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, type: "spring" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, type: "spring" },
+  },
 };
 
-// 🌟 Updated Project Content
+// 🌟 Project Content
 const projects = [
   {
     id: 1,
@@ -84,7 +93,10 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section className="relative z-10 bg-gradient-to-r from-[#241533] to-[#0c0120] py-20 px-6 sm:px-16 text-white" id="projects">
+    <section
+      className="relative z-10 bg-gradient-to-r from-[#241533] to-[#0c0120] py-20 px-6 sm:px-16 text-white"
+      id="projects"
+    >
       <motion.div
         className="max-w-7xl mx-auto text-center space-y-8"
         initial="hidden"
@@ -112,12 +124,14 @@ const Projects = () => {
         </motion.div>
 
         <motion.p
-          className="text-lg sm:text-xl lg:text-2xl text-gray-400 leading-relaxed max-w-4xl mx-auto"
+          className="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Explore our featured projects where innovative ideas were transformed into scalable digital solutions. Our portfolio reflects our dedication to delivering seamless, user-centric applications.
+          Explore our featured projects where innovative ideas were transformed
+          into scalable digital solutions. Our portfolio reflects our dedication
+          to delivering seamless, user-centric applications.
         </motion.p>
 
         {/* 🚀 Project Cards with Animation */}
@@ -140,7 +154,9 @@ const Projects = () => {
               <h3 className="text-2xl font-semibold mb-2 group-hover:text-[#915EFF] transition-colors duration-300">
                 {project.title}
               </h3>
-              <p className="text-sm text-gray-400 mb-4">{project.description}</p>
+              <p className="text-sm text-gray-400 mb-4">
+                {project.description}
+              </p>
               <div className="flex flex-wrap gap-2 text-sm text-gray-300">
                 {project.tags.map((tag) => (
                   <span
@@ -153,16 +169,22 @@ const Projects = () => {
               </div>
 
               {/* 🔗 Animated View Project Button */}
-              <motion.a
-                href={project.webapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-6 bg-gradient-to-r from-[#915EFF] to-purple-600 px-6 py-2 rounded-lg text-white font-semibold shadow-lg hover:opacity-90 transition-all duration-300"
+              <motion.div
+                className="flex items-center gap-2 mt-6"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                🚀 View Project
-              </motion.a>
+                {/* 
+                  Link to the new details page. 
+                  We'll pass the project id as a URL parameter, e.g., /projects/1 
+                */}
+                <Link
+                  to={`/projects/project-details/${project.id}`}
+                  className="inline-block bg-gradient-to-r from-[#915EFF] to-purple-600 px-6 py-2 rounded-lg text-white font-semibold shadow-lg hover:opacity-90 transition-all duration-300"
+                >
+                  🚀 View Project
+                </Link>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
@@ -172,3 +194,4 @@ const Projects = () => {
 };
 
 export default Projects;
+

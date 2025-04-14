@@ -14,6 +14,7 @@ import Cms from "./Pages/Page/Services/Cms.jsx";
 import FullStackDevelopement from "./Pages/Page/Services/FullStackDevelopement.jsx";
 import Learn from "./Pages/Home/Learn.jsx";
 import Quote from "./Pages/Home/Quote.jsx";
+import ProjectDetails from "./Pages/Page/Projects/ProjectDetails.jsx";
 
 const HomeLayout = lazy(() => import("./Components/HomeLayout.jsx"));
 const NotFound = lazy(() => import("./Components/NotFound"));
@@ -33,6 +34,8 @@ const App = () => {
             <Route path="/contact-page" element={<ContactPage />} />
             <Route path="/learn-more" element={<Learn />} />
             <Route path="/quote-page" element={<Quote />} />
+
+            <Route path="projects/project-details/:id" element={<ProjectDetails />} />
 
             <Route path="/services/content-writing" element={<ContentWriting />} />
             <Route path="/services/mobile-web-design-dev" element={<Dev />} />
