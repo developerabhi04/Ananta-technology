@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import ParticleBg from "../../Particles/ParticleBg";
 import Bottomline from "../../Components/BottomLine/Bottomline";
 // import vid from "../../assets/213648_medium.mp4"; 
-import vid from "../../assets/73190-548655212.mp4"; 
 // import vid from "../../assets/73190-548655212.mp4"; 
+import vid from "../../assets/113364-697718054_small.mp4"; 
 
 const Banner = () => {
   const navigate = useNavigate();
