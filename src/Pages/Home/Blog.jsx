@@ -4,6 +4,7 @@ import imgNodeSec from "../../assets/blog/nodejs_security.jpg";
 import imgNextDeploy from "../../assets/blog/images.jfif";
 import imgGraphQL from "../../assets/blog/Banner-3.png";
 import imgWebpack from "../../assets/blog/hq720.jpg";
+import imgDocker from "../../assets/blog/Docker-Image-Creation.png";
 
 const posts = [
   {
@@ -45,6 +46,14 @@ const posts = [
     date: "December 15, 2024",
     excerpt:
       "Speed up your builds and bundles with these advanced Webpack tips.",
+  },
+  {
+    id: 6,
+    title: "Containerizing Node Apps with Docker",
+    img: imgDocker,
+    date: "November 30, 2024",
+    excerpt:
+      "Containerize your Node.js applications with Docker for consistent deployments.",
   },
 ];
 
