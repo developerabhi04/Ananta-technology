@@ -1,88 +1,90 @@
 import { motion } from "framer-motion";
-import { TbWriting } from "react-icons/tb";
+import { FaDraftingCompass } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
+const UIUXDesign = () => {
+    const navigate = useNavigate();
 
-const ContentWriting = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
-            <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
+            <section className="bg-gradient-to-r to-[#3a195b] from-[#0e3468] text-white py-20">
                 <div className="container mx-auto px-4 text-center py-24">
                     <motion.div
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                     >
-                        <TbWriting className="text-6xl mb-4" />
+                        <FaDraftingCompass className="text-6xl mb-4  text-green-600" />
                     </motion.div>
                     <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                        Content Writing Services
+                       <span className="text-pink-600">UI</span> &amp; <span className="text-green-600">UX</span> Design Services
                     </h1>
-                    <p className="text-xl md:text-2xl mb-8">
-                        Engaging, SEO-friendly content to elevate your brand and drive traffic.
+                    <p className="text-xl md:text-2xl mb-8  text-green-600">
+                        Creating intuitive, engaging interfaces that delight users and drive conversions.
                     </p>
-                    <a
-                        href="/contact-page"
-                        className="bg-white text-blue-500 py-3 px-6 rounded-full font-semibold hover:bg-gray-100 transition"
+                    <button
+                        onClick={() => navigate("/contact-page")}
+                        className="text-green-300 py-3 px-6 rounded-full font-semibold bg-[#915EFF] transition"
                     >
                         Get a Quote
-                    </a>
+                    </button>
                 </div>
             </section>
 
             {/* About Section */}
-            <section className="py-16">
+            <section className="py-16 bg-gradient-to-r  from-green-500 to-pink-500">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-                        Why Our Content Writing Stands Out
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-purple-700">
+                        Why Our UI/UX Design Excels
                     </h2>
-                    <p className="text-gray-700 text-lg leading-relaxed max-w-2xl mx-auto">
-                        Our team of expert writers crafts compelling narratives and engaging articles that resonate with your target audience. We blend creativity with robust SEO techniques to ensure your content not only informs but also drives measurable results.
+                    <p className="text-white text-lg leading-relaxed max-w-2xl mx-auto">
+                        We blend user research, data-driven insights, and creative design to build interfaces that are not only beautiful but also highly usable. From wireframes to prototypes, our process ensures every interaction feels natural.
                     </p>
                 </div>
             </section>
 
-            {/* Services Section */}
-            <section className="bg-white py-16">
+            {/* Solutions Section */}
+            <section className="bg-white py-16 bg-gradient-to-r  from-green-500 to-pink-500">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                        Our Content Writing Solutions
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-600">
+                        Our UI/UX Design Solutions
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2">Blog Posts & Articles</h3>
-                            <p className="text-gray-700">
-                                Fresh and informative content that builds authority and engages your readers.
+                        <div className=" p-6 rounded-lg shadow hover:shadow-2xl transition duration-300">
+                            <h3 className="text-xl font-semibold mb-2 text-purple-500">User Research</h3>
+                            <p className="text-white">
+                                In-depth interviews, surveys, and analytics review to uncover real user needs.
                             </p>
                         </div>
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2">Copywriting</h3>
-                            <p className="text-gray-700">
-                                Persuasive copywriting that transforms prospects into loyal customers.
+                        <div className=" p-6 rounded-lg shadow hover:shadow-2xl transition duration-300">
+                            <h3 className="text-xl font-semibold mb-2 text-purple-500">Wireframing & Prototyping</h3>
+                            <p className="text-white">
+                                Low- and high-fidelity wireframes to validate structure and flow before development.
                             </p>
                         </div>
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2">SEO Content</h3>
-                            <p className="text-gray-700">
-                                Keyword-rich content designed to boost your search engine rankings.
+                        <div className=" p-6 rounded-lg shadow hover:shadow-2xl transition duration-300">
+                            <h3 className="text-xl font-semibold mb-2 text-purple-500">Visual Design</h3>
+                            <p className="text-white">
+                                Pixel-perfect mockups with consistent branding and accessible color palettes.
                             </p>
                         </div>
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2">Technical Writing</h3>
-                            <p className="text-gray-700">
-                                Clear and concise documentation, manuals, and guides that simplify complex topics.
+                        <div className=" p-6 rounded-lg shadow hover:shadow-2xl transition duration-300">
+                            <h3 className="text-xl font-semibold mb-2 text-purple-500">Interaction Design</h3>
+                            <p className="text-white">
+                                Micro‑interactions and animations that guide and delight users.
                             </p>
                         </div>
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2">Product Descriptions</h3>
-                            <p className="text-gray-700">
-                                Compelling product descriptions that highlight key features and drive sales.
+                        <div className=" p-6 rounded-lg shadow hover:shadow-2xl transition duration-300">
+                            <h3 className="text-xl font-semibold mb-2 text-purple-500">Usability Testing</h3>
+                            <p className="text-white">
+                                Real‑user feedback sessions to refine flows and eliminate friction.
                             </p>
                         </div>
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2">Social Media Content</h3>
-                            <p className="text-gray-700">
-                                Impactful posts designed to engage your audience and grow your social presence.
+                        <div className=" p-6 rounded-lg shadow hover:shadow-2xl transition duration-300">
+                            <h3 className="text-xl font-semibold mb-2 text-purple-500">Design Systems</h3>
+                            <p className="text-white">
+                                Scalable component libraries and style guides for consistent, efficient builds.
                             </p>
                         </div>
                     </div>
@@ -90,34 +92,40 @@ const ContentWriting = () => {
             </section>
 
             {/* Process Section */}
-            <section className="py-16 bg-gray-50">
+            <section className="py-16 bg-gray-50 bg-gradient-to-r  from-green-500 to-pink-500">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-                        Our Content Writing Process
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8  text-blue-600">
+                        Our Design Process
                     </h2>
                     <div className="max-w-3xl mx-auto space-y-8">
                         <div>
-                            <h3 className="text-xl font-semibold mb-1">1. Research & Strategy</h3>
-                            <p className="text-gray-700">
-                                We research your industry, analyze competitors, and identify your target audience to develop a custom content strategy.
+                            <h3 className="text-xl font-semibold mb-1 text-purple-500">1. Discovery & Research</h3>
+                            <p className="text-white">
+                                We kick off with stakeholder workshops and user interviews to define goals and pain points.
                             </p>
                         </div>
                         <div>
-                            <h3 className="text-xl font-semibold mb-1">2. Content Creation</h3>
-                            <p className="text-gray-700">
-                                Our talented writers produce original, high-quality content that perfectly aligns with your brand voice.
+                            <h3 className="text-xl font-semibold mb-1 text-purple-500">2. Wireframes & Flows</h3>
+                            <p className="text-white">
+                                Sketching out user journeys and screen layouts to ensure smooth navigation.
                             </p>
                         </div>
                         <div>
-                            <h3 className="text-xl font-semibold mb-1">3. Review & Optimization</h3>
-                            <p className="text-gray-700">
-                                Rigorous editing and SEO optimization ensure that your content is error-free and search-engine friendly.
+                            <h3 className="text-xl font-semibold mb-1 text-purple-500">3. Visual Mockups</h3>
+                            <p className="text-white">
+                                Crafting high-fidelity designs that reflect your brand and resonate with users.
                             </p>
                         </div>
                         <div>
-                            <h3 className="text-xl font-semibold mb-1">4. Delivery & Revisions</h3>
-                            <p className="text-gray-700">
-                                We deliver the content promptly, and our flexible revision process guarantees your satisfaction.
+                            <h3 className="text-xl font-semibold mb-1 text-purple-500">4. Prototype & Test</h3>
+                            <p className="text-white">
+                                Interactive prototypes tested with real users, incorporating feedback iteratively.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-semibold mb-1 text-purple-500">5. Handoff & Support</h3>
+                            <p className="text-white">
+                                Developer‑ready specs and ongoing design QA to ensure pixel-perfect implementation.
                             </p>
                         </div>
                     </div>
@@ -125,31 +133,31 @@ const ContentWriting = () => {
             </section>
 
             {/* Portfolio Section */}
-            <section className="bg-white py-16">
+            <section className="bg-white py-16 bg-gradient-to-r from-green-500 to-pink-500">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                        Our Portfolio
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
+                        Featured Projects
                     </h2>
-                    <p className="text-gray-700 text-center max-w-2xl mx-auto mb-8">
-                        Take a look at some of our recent projects and see how our expertly crafted content has helped brands succeed.
-                    </p>
+                    {/* <p className="text-gray-700 text-center max-w-2xl mx-auto mb-8">
+                        A snapshot of recent UI/UX engagements where we transformed ideas into delightful experiences.
+                    </p> */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2">Tech Blog Series</h3>
-                            <p className="text-gray-700">
-                                A series of insightful articles on the latest technology trends.
+                        <div className="bg-gradient-to-r to-[#3a195b] from-[#0e3468] text-white p-6 rounded-lg shadow">
+                            <h3 className="text-xl font-semibold mb-2">Fintech Dashboard</h3>
+                            <p className="text-gray-400">
+                                Clean, data‑driven interface for managing investments on the go.
                             </p>
                         </div>
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2">E-commerce Copy</h3>
-                            <p className="text-gray-700">
-                                High-converting product descriptions and landing pages for an online store.
+                        <div className=" p-6 rounded-lg shadow bg-gradient-to-r to-[#3a195b] from-[#0e3468]">
+                            <h3 className="text-xl font-semibold mb-2 text-white">Health App</h3>
+                            <p className="text-gray-400">
+                                User‑centric mobile experience for tracking wellness and appointments.
                             </p>
                         </div>
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2">Social Media Campaign</h3>
-                            <p className="text-gray-700">
-                                Creative content crafted for boosting engagement and brand awareness.
+                        <div className="bg-gray-100 p-6 rounded-lg shadow bg-gradient-to-r to-[#3a195b] from-[#0e3468]">
+                            <h3 className="text-xl font-semibold mb-2 text-white">E‑commerce UX Revamp</h3>
+                            <p className="text-gray-400">
+                                Streamlined checkout flow that boosted conversions by 25%.
                             </p>
                         </div>
                     </div>
@@ -157,118 +165,110 @@ const ContentWriting = () => {
             </section>
 
             {/* Team Section */}
-            <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Meet Our Team</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div className="text-center">
-                            <img
-                                src="https://via.placeholder.com/150"
-                                alt="Writer John Doe"
-                                className="mx-auto rounded-full mb-4"
-                            />
-                            <h3 className="text-xl font-semibold">John Doe</h3>
-                            <p className="text-gray-700">Senior Content Strategist</p>
-                        </div>
-                        <div className="text-center">
-                            <img
-                                src="https://via.placeholder.com/150"
-                                alt="Writer Jane Smith"
-                                className="mx-auto rounded-full mb-4"
-                            />
-                            <h3 className="text-xl font-semibold">Jane Smith</h3>
-                            <p className="text-gray-700">Creative Copywriter</p>
-                        </div>
-                        <div className="text-center">
-                            <img
-                                src="https://via.placeholder.com/150"
-                                alt="Writer Mark Lee"
-                                className="mx-auto rounded-full mb-4"
-                            />
-                            <h3 className="text-xl font-semibold">Mark Lee</h3>
-                            <p className="text-gray-700">SEO Specialist</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Testimonials Section */}
-            <section className="bg-white py-16">
+            {/* <section className="py-16 bg-gray-50 bg-gradient-to-r from-green-500 to-teal-600">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                        What Our Clients Say
+                        Meet the Designers
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {[
+                            { name: "Alice Nguyen", role: "Lead UX Researcher" },
+                            { name: "Brian Kim", role: "Senior UI Designer" },
+                            { name: "Celia Martinez", role: "Interaction Designer" },
+                        ].map((member) => (
+                            <div key={member.name} className="text-center">
+                                <img
+                                    src="https://via.placeholder.com/150"
+                                    alt={member.name}
+                                    className="mx-auto rounded-full mb-4"
+                                />
+                                <h3 className="text-xl font-semibold">{member.name}</h3>
+                                <p className="text-gray-700">{member.role}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section> */}
+
+            {/* Testimonials Section */}
+            <section className="py-16 bg-gradient-to-r  from-green-500 to-pink-500">
+                <div className="container mx-auto px-4 ">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
+                        What Clients Say
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <p className="text-gray-700 italic">
-                                The team delivered outstanding content that perfectly captured our brand's voice. Our traffic and engagement have significantly improved.
+                        <div className="bg-gradient-to-r to-[#3a195b] from-[#0e3468] p-6 rounded-lg shadow">
+                            <p className="text-gray-300 italic">
+                                “Their attention to detail and user‑first approach transformed our product’s UX. Engagement is through the roof!”
                             </p>
-                            <p className="mt-4 font-semibold text-gray-900">- Alex Johnson, CEO, TechCorp</p>
+                            <p className="mt-4 font-semibold text-orange-500">
+                                – Sarah Lee, Product Manager @ FinServe
+                            </p>
                         </div>
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <p className="text-gray-700 italic">
-                                Their research-driven approach and creative storytelling have set them apart. I highly recommend their services.
+                        <div className="bg-gradient-to-r to-[#3a195b] from-[#0e3468] p-6 rounded-lg shadow">
+                            <p className="text-gray-300 italic">
+                                “From concept to prototype, the team delivered exactly what we needed—and faster than expected.”
                             </p>
-                            <p className="mt-4 font-semibold text-gray-900">- Emily Davis, Marketing Director, ShopEase</p>
+                            <p className="mt-4 font-semibold text-orange-500">
+                                – David Patel, CTO @ HealthTrack
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* FAQ Section */}
-            <section className="bg-gray-50 py-16">
-                <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <section className="bg-gray-50 py-16 bg-gradient-to-r  from-green-500 to-pink-500">
+                <div className="container mx-auto px-4 ">
+                    <h2 className="text-3xl md:text-4xl text-blue-600 font-bold text-center mb-12">
                         Frequently Asked Questions
                     </h2>
-                    <div className="space-y-4 max-w-3xl mx-auto">
-                        <div className="bg-white p-4 rounded-lg shadow">
-                            <h3 className="font-semibold text-lg">
-                                What is your turnaround time for content projects?
-                            </h3>
-                            <p className="text-gray-700 mt-2">
-                                Our turnaround time typically ranges from 3-7 days, depending on the project scope.
-                            </p>
-                        </div>
-                        <div className="bg-white p-4 rounded-lg shadow">
-                            <h3 className="font-semibold text-lg">
-                                Do you offer revisions if I'm not satisfied with the content?
-                            </h3>
-                            <p className="text-gray-700 mt-2">
-                                Absolutely. We offer revisions as part of our commitment to ensuring your satisfaction.
-                            </p>
-                        </div>
-                        <div className="bg-white p-4 rounded-lg shadow">
-                            <h3 className="font-semibold text-lg">
-                                How do you ensure the content is SEO-friendly?
-                            </h3>
-                            <p className="text-gray-700 mt-2">
-                                We work closely with SEO experts to incorporate targeted keywords, meta tags, and on-page optimization strategies in every piece.
-                            </p>
-                        </div>
+                    <div className="space-y-4 max-w-3xl mx-auto ">
+                        {[
+                            {
+                                q: "How long does the UI/UX process take?",
+                                a:
+                                    "Typical engagements range from 4–8 weeks depending on scope (research, wireframes, prototyping).",
+                            },
+                            {
+                                q: "Do you share design files and specs?",
+                                a:
+                                    "Yes—Figma or Sketch files, plus developer handoff with Zeplin or Storybook specs.",
+                            },
+                            {
+                                q: "Can you work with our existing brand guidelines?",
+                                a:
+                                    "Absolutely. We align with your color palettes, typography, and voice to maintain consistency.",
+                            },
+                        ].map(({ q, a }) => (
+                            <div key={q} className=" p-4 rounded-lg shadow bg-gradient-to-r  from-pink-500 to-purple-500">
+                                <h3 className="font-semibold text-lg text-green-500">{q}</h3>
+                                <p className="text-gray-300 mt-2">{a}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16">
+            {/* Call‑to‑Action Section */}
+            <section className="bg-gradient-to-r  from-pink-500 to-purple-600 text-white py-16">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Ready to Elevate Your Content?
+                        Ready to Transform Your User Experience?
                     </h2>
                     <p className="text-lg md:text-xl mb-8">
-                        Contact us today to kickstart your journey toward compelling, conversion-driven content.
+                        Let’s collaborate to craft interfaces your users will love. Get in touch today!
                     </p>
-                    <a
-                        href="/contact-page"
-                        className="bg-white text-blue-500 py-3 px-8 rounded-full font-semibold hover:bg-gray-100 transition"
+                    <button
+                        onClick={() => navigate("/contact-page")}
+                        className="bg-green-600 text-white-600 py-3 px-8 rounded-full font-semibold hover:bg-gray-100 transition"
                     >
-                        Get in Touch
-                    </a>
+                        Book a Consultation
+                    </button>
                 </div>
             </section>
         </div>
     );
 };
 
-export default ContentWriting;
+export default UIUXDesign;

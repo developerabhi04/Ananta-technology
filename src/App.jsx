@@ -6,7 +6,6 @@ import Loader from "./Components/Loader/Loader";
 import Terms from "./Pages/Site/Terms.jsx";
 import ScrollToTop from "./Components/ScrollToTop.jsx";
 import ContactPage from "./Pages/Page/Contact/ContactPage.jsx";
-import ContentWriting from "./Pages/Page/Services/ContentWriting.jsx";
 import Dev from "./Pages/Page/Services/Dev.jsx";
 import EcomStrategy from "./Pages/Page/Services/EcomStrategy.jsx";
 import Smo from "./Pages/Page/Services/Smo.jsx";
@@ -15,6 +14,10 @@ import FullStackDevelopement from "./Pages/Page/Services/FullStackDevelopement.j
 import Learn from "./Pages/Home/Learn.jsx";
 import Quote from "./Pages/Home/Quote.jsx";
 import ProjectDetails from "./Pages/Page/Projects/ProjectDetails.jsx";
+import UIUXDesign from "./Pages/Page/Services/ContentWriting.jsx";
+import ProjectsPage from "./Pages/Page/Projects/ProjectsPage.jsx";
+import AboutPage from "./Pages/Page/About/AboutPage.jsx";
+
 
 const HomeLayout = lazy(() => import("./Components/HomeLayout.jsx"));
 const NotFound = lazy(() => import("./Components/NotFound"));
@@ -32,12 +35,14 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomeLayout />} />
             <Route path="/contact-page" element={<ContactPage />} />
+            <Route path="/about-page" element={<AboutPage />} />
             <Route path="/learn-more" element={<Learn />} />
             <Route path="/quote-page" element={<Quote />} />
 
             <Route path="projects/project-details/:id" element={<ProjectDetails />} />
+            <Route path="projects/project-page" element={<ProjectsPage />} />
 
-            <Route path="/services/content-writing" element={<ContentWriting />} />
+            <Route path="/services/ui-ux-design" element={<UIUXDesign />} />
             <Route path="/services/mobile-web-design-dev" element={<Dev />} />
             <Route path="/services/ecommerce-strategy" element={<EcomStrategy />} />
             <Route path="/services/social-media-campaigns" element={<Smo />} />

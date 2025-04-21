@@ -32,7 +32,7 @@ const projectsData = [
             "A robust web portal designed to streamline marine and offshore operations, enhancing efficiency and connectivity for industry professionals.",
         image: project2,
         tags: ["AWS", "React Js", "MongoDb", "Node Js", "Express Js", "Redux"],
-        webapp: "https://ecommerce-website-frontend.vercel.app/",
+        webapp: "https://oceanq.eu/",
         details: `
       Developed for the maritime industry, this solution connects port authorities, 
       shipping companies, and other maritime stakeholders in a unified platform. 
@@ -123,7 +123,7 @@ const ProjectDetails = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-r from-[#241533] to-[#0c0120] text-white px-6 sm:px-16 py-36 ">
+        <div className="min-h-screen bg-gradient-to-r from-[#241533] to-[#0c0120] text-white px-6 sm:px-16 py-42 ">
             <motion.div
                 className="max-w-4xl mx-auto space-y-8"
                 initial={{ opacity: 0, y: 50 }}

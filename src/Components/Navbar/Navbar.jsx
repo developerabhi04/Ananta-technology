@@ -1,30 +1,39 @@
+// src/Components/Navbar/Navbar.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Ananta Technology.png";
-import { Menu, Close } from "@mui/icons-material";
+import { Menu, Close, ArrowDropDown } from "@mui/icons-material";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Navigation links
+/* import your servicesList */
+import { services } from "../../Pages/Home/Services";
+
 const navLinks = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about-page" },
-  { title: "Services", href: "/services-page" },
-  { title: "Projects", href: "/projects-page" },
+  {
+    title: "Services",
+    href: "/services",
+    /* dynamically build subLinks from servicesList */
+    subLinks: services.map((s) => ({
+      title: s.title,
+      href: s.link,
+    })),
+  },
+  { title: "Projects", href: "/projects/project-page" },
   { title: "Contact", href: "/contact-page" },
 ];
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setScrolled(scrollTop > 100);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 100);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -32,100 +41,153 @@ const Navbar = () => {
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`fixed top-0 z-40 w-full py-3 transition-all duration-300 ${scrolled ? "bg-slate-950 shadow-lg" : "bg-transparent"
-        } px-6 sm:px-16`}
-    >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
-        {/* Logo Section */}
+      className={`fixed top-0 w-full py-3 px-6 sm:px-16 z-40 transition-all ${scrolled ? "bg-slate-950 shadow-lg" : "bg-transparent"}`}>
+      <div className="mx-auto flex max-w-7xl items-center justify-between">
+        {/* Logo */}
         <Link
           to="/"
           className="flex items-center gap-2"
           onClick={() => {
             setActive("");
             window.scrollTo(0, 0);
-          }}
-        >
+          }}>
           <motion.img
             src={logo}
             alt="logo"
-            className="h-16 w-auto sm:h-20 object-contain"
+            className="h-16 sm:h-20 object-contain"
             whileHover={{ scale: 1.1 }}
             transition={{ type: "tween", stiffness: 900 }}
           />
         </Link>
 
-        {/* Desktop Nav Links */}
-        <ul className="hidden sm:flex list-none gap-10">
-          {navLinks.map((nav) => (
-            <motion.li
-              key={nav.id || nav.title}
-              className={`relative cursor-pointer text-lg font-medium transition-colors ${active === nav.title ? "text-white" : "text-gray-400 hover:text-white"
-                }`}
-              onClick={() => setActive(nav.title)}
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              {nav.href.startsWith("/") ? (
-                <Link to={nav.href}>{nav.title}</Link>
-              ) : (
-                <a href={nav.href}>{nav.title}</a>
-              )}
-              {/* Hover underline animation */}
-              <motion.div
-                className="absolute bottom-0 left-0 h-[2px] bg-[#915EFF] w-full"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.9, ease: "easeInOut" }}
-              />
-            </motion.li>
-          ))}
-        </ul>
+        {/* Desktop */}
+        <div className="hidden sm:flex items-center gap-8">
+          <ul className="flex items-center gap-6">
+            {navLinks.map((nav) => {
+              const hasSub = !!nav.subLinks?.length;
+              return (
+                <li
+                  key={nav.title}
+                  className="relative group text-lg font-medium text-gray-400 hover:text-white transition-colors"
+                  onClick={() => setActive(nav.title)}>
+                  <div className="flex items-center gap-1 cursor-pointer">
+                    <Link to={nav.href}>{nav.title}</Link>
+                    {hasSub && <ArrowDropDown fontSize="small" />}
+                  </div>
 
-        {/* Mobile Menu with Animation */}
-        <div className="sm:hidden flex items-center">
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-[2px] bg-[#915EFF]"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                  />
+
+                  {/* Desktop dropdown with increased width */}
+                  {hasSub && (
+                    <div className="absolute left-0 top-full mt-1 hidden w-64 flex-col rounded-md bg-slate-900 py-3 shadow-lg group-hover:flex z-10">
+                      {nav.subLinks.map((sub) => (
+                        <Link
+                          key={sub.title}
+                          to={sub.href}
+                          onClick={() => setActive(sub.title)}
+                          className="px-4 py-2 text-sm text-gray-300 hover:bg-slate-800 hover:text-white">
+                          {sub.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* Get a Quote */}
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              to="/contact-page"
+              className="bg-gradient-to-r from-[#915EFF] to-purple-600 px-5 py-2 rounded-lg text-white font-semibold shadow-md hover:opacity-90 transition-all">
+              Get A Quote
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Mobile burger */}
+        <div className="sm:hidden">
           {toggle ? (
-            <Close
-              onClick={() => setToggle(!toggle)}
-              className="text-white text-3xl cursor-pointer"
-            />
+            <Close onClick={() => setToggle(false)} className="text-white text-3xl cursor-pointer" />
           ) : (
-            <Menu
-              onClick={() => setToggle(!toggle)}
-              className="text-white text-3xl cursor-pointer"
-            />
+            <Menu onClick={() => setToggle(true)} className="text-white text-3xl cursor-pointer" />
           )}
         </div>
 
-        {/* Animated Mobile Dropdown */}
+        {/* Mobile drawer */}
         <AnimatePresence>
           {toggle && (
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="absolute top-20 right-0 z-20 mx-4 my-2 w-2/3 flex-col rounded-lg bg-slate-900 p-6 shadow-lg transition-transform duration-300"
-            >
+              transition={{ duration: 0.4 }}
+              className="absolute top-20 right-0 z-20 w-[80%] max-w-sm rounded-lg bg-slate-900 p-6 shadow-lg">
               <ul className="flex flex-col gap-6 text-white font-medium">
-                {navLinks.map((nav) => (
-                  <motion.li
-                    key={nav.id || nav.title}
-                    className={`cursor-pointer text-base font-medium ${active === nav.title ? "text-[#915EFF]" : "text-gray-400 hover:text-white"
-                      }`}
-                    onClick={() => {
-                      setToggle(false);
-                      setActive(nav.title);
-                    }}
-                    whileHover={{ x: 10 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    {nav.href.startsWith("/") ? (
-                      <Link to={nav.href}>{nav.title}</Link>
-                    ) : (
-                      <a href={nav.href}>{nav.title}</a>
-                    )}
-                  </motion.li>
-                ))}
+                {navLinks.map((nav) => {
+                  const hasSub = !!nav.subLinks?.length;
+                  return (
+                    <div key={nav.title}>
+                      <motion.li
+                        className={`flex items-center justify-between text-base ${active === nav.title ? "text-[#915EFF]" : "text-gray-300 hover:text-white"}`}
+                        whileHover={{ x: 5 }}
+                        onClick={() => {
+                          if (!hasSub) {
+                            setActive(nav.title);
+                            setToggle(false);
+                          }
+                        }}>
+                        <Link to={nav.href}>{nav.title}</Link>
+                        {hasSub && (
+                          <ArrowDropDown
+                            className={`cursor-pointer transform ${servicesOpen ? "rotate-180" : ""}`}
+                            onClick={() => setServicesOpen((o) => !o)}
+                          />
+                        )}
+                      </motion.li>
+
+                      {/* Mobile submenu */}
+                      {hasSub && servicesOpen && (
+                        <AnimatePresence>
+                          <motion.ul
+                            initial={{ height: 0 }}
+                            animate={{ height: "auto" }}
+                            exit={{ height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="pl-4 mt-2 flex flex-col gap-2 overflow-hidden">
+                            {nav.subLinks.map((sub) => (
+                              <li
+                                key={sub.title}
+                                className="text-gray-300 hover:text-white text-sm"
+                                onClick={() => {
+                                  setActive(sub.title);
+                                  setToggle(false);
+                                  setServicesOpen(false);
+                                }}>
+                                <Link to={sub.href}>{sub.title}</Link>
+                              </li>
+                            ))}
+                          </motion.ul>
+                        </AnimatePresence>
+                      )}
+                    </div>
+                  );
+                })}
+
+                <motion.li whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                  <Link
+                    to="/get-a-quote"
+                    onClick={() => setToggle(false)}
+                    className="block mt-4 bg-gradient-to-r from-[#915EFF] to-purple-600 px-4 py-2 rounded-lg text-center text-white font-semibold shadow-md">
+                    Get A Quote
+                  </Link>
+                </motion.li>
               </ul>
             </motion.div>
           )}
