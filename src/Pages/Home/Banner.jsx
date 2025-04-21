@@ -11,7 +11,7 @@ const Banner = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative z-0 bg-gradient-to-r from-[#1a041f] to-[#05000a] h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative z-0 h-screen flex items-center justify-center overflow-hidden">
 
       {/* Background Video */}
       <div className="fixed inset-0 w-full h-full z-10 overflow-hidden pointer-events-none">

@@ -123,7 +123,7 @@ const ProjectDetails = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-r from-[#241533] to-[#0c0120] text-white px-6 sm:px-16 py-42 ">
+        <div className="min-h-screen bg-gradient-to-r from-[#241533] to-[#0c0120] text-white px-6 sm:px-16 py-44 ">
             <motion.div
                 className="max-w-4xl mx-auto space-y-8"
                 initial={{ opacity: 0, y: 50 }}

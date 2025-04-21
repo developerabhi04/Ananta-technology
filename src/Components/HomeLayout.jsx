@@ -5,6 +5,7 @@ import Contact from "../Pages/Home/Contact"
 import Projects from "../Pages/Home/Projects"
 import Services from "../Pages/Home/Services"
 import UserOption from "./UserOption"
+import Blog from "../Pages/Home/Blog"
 
 
 const HomeLayout = () => {
@@ -26,6 +27,7 @@ const HomeLayout = () => {
       <About />
       <Services />
       <Projects />
+      <Blog/>
       <Contact />
       <UserOption />
     </>

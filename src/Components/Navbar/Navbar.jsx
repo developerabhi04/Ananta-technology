@@ -13,7 +13,6 @@ const navLinks = [
   { title: "About", href: "/about-page" },
   {
     title: "Services",
-    href: "/services",
     /* dynamically build subLinks from servicesList */
     subLinks: services.map((s) => ({
       title: s.title,
@@ -68,7 +67,7 @@ const Navbar = () => {
               return (
                 <li
                   key={nav.title}
-                  className="relative group text-lg font-medium text-gray-400 hover:text-white transition-colors"
+                  className="relative group text-lg font-medium text-gray-300 hover:text-white transition-colors"
                   onClick={() => setActive(nav.title)}>
                   <div className="flex items-center gap-1 cursor-pointer">
                     <Link to={nav.href}>{nav.title}</Link>
@@ -84,7 +83,7 @@ const Navbar = () => {
 
                   {/* Desktop dropdown with increased width */}
                   {hasSub && (
-                    <div className="absolute left-0 top-full mt-1 hidden w-64 flex-col rounded-md bg-slate-900 py-3 shadow-lg group-hover:flex z-10">
+                    <div className="absolute left-0 top-full mt-1 hidden w-64 flex-col rounded-md bg-slate-500 py-3 shadow-lg group-hover:flex z-10">
                       {nav.subLinks.map((sub) => (
                         <Link
                           key={sub.title}

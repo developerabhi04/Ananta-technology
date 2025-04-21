@@ -12,7 +12,7 @@ import Smo from "./Pages/Page/Services/Smo.jsx";
 import Cms from "./Pages/Page/Services/Cms.jsx";
 import FullStackDevelopement from "./Pages/Page/Services/FullStackDevelopement.jsx";
 import Learn from "./Pages/Home/Learn.jsx";
-import Quote from "./Pages/Home/Quote.jsx";
+
 import ProjectDetails from "./Pages/Page/Projects/ProjectDetails.jsx";
 import UIUXDesign from "./Pages/Page/Services/ContentWriting.jsx";
 import ProjectsPage from "./Pages/Page/Projects/ProjectsPage.jsx";
@@ -37,7 +37,7 @@ const App = () => {
             <Route path="/contact-page" element={<ContactPage />} />
             <Route path="/about-page" element={<AboutPage />} />
             <Route path="/learn-more" element={<Learn />} />
-            <Route path="/quote-page" element={<Quote />} />
+           
 
             <Route path="projects/project-details/:id" element={<ProjectDetails />} />
             <Route path="projects/project-page" element={<ProjectsPage />} />

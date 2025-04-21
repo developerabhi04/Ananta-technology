@@ -1,273 +1,281 @@
+// FullStackDevelopment.jsx
+import React from "react";
 import { motion } from "framer-motion";
+import { FaLaptopCode } from "react-icons/fa";
 import {
-    FaLaptopCode,
-    FaNodeJs,
-    FaSass
+  FaReact,
+  FaNodeJs,
+  FaSass,
 } from "react-icons/fa";
-import { FaReact } from "react-icons/fa";
 import {
-    SiTypescript,
-    SiTailwindcss,
-    SiRedis,
-    SiMongodb,
-    SiExpress,
-    SiJavascript
+  SiTypescript,
+  SiTailwindcss,
+  SiRedis,
+  SiMongodb,
+  SiExpress,
+  SiJavascript,
 } from "react-icons/si";
+import { useNavigate } from "react-router-dom";
 
-const FullStackDevelopement = () => {
-    return (
-        <div className="min-h-screen bg-gray-50">
-            {/* Hero Section */}
-            <section className="bg-gradient-to-r to-[#3a195b] from-[#0e3468] text-white py-20">
-                <div className="container mx-auto px-4 text-center py-24">
-                    <motion.div
-                        initial={{ opacity: 0, y: -40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                    >
-                        <FaLaptopCode className="text-6xl mb-4 text-yellow-500" />
-                    </motion.div>
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-green-400">
-                        Full Stack Development
-                    </h1>
-                    <p className="text-xl md:text-2xl mb-8">
-                        Cutting-edge <span className="text-yellow-400">MERN</span> solutions with <span className="text-blue-400">TypeScript</span>, <span className="text-red-500">Redis caching</span> , <span className="text-green-500">Tailwind CSS</span>, <span className="text-pink-500">SCSS</span> and more.
-                    </p>
-                    <a
-                        href="/contact"
-                        className="bg-pink-400 text-indigo-100 py-3 px-6 rounded-full font-semibold hover:bg-gray-100 transition"
-                    >
-                        Get a Quote
-                    </a>
-                </div>
-            </section>
+const FullStackDevelopment = () => {
+  const navigate = useNavigate();
 
-            {/* About Section */}
-            <section className="py-16 bg-gradient-to-r to-[#0d566a] from-[#65690e]">
-                <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-white">
-                        About Our Full Stack Services
-                    </h2>
-                    <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-                        Our full stack development expertise spans across the entire technology spectrum—from robust backend architectures using Node.js and Express, dynamic front-end development with React, to implementing advanced features with TypeScript, Redis caching, and modern styling solutions like Tailwind CSS and SCSS.
-                        We build scalable, secure, and high-performance web applications that drive business growth and deliver an exceptional user experience.
-                    </p>
-                </div>
-            </section>
-
-            {/* Technology Stack Section */}
-            <section className="bg-gradient-to-r to-[#0d566a] from-[#65690e] py-16">
-                <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
-                        Our Technology Stack
-                    </h2>
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {/* React */}
-                        <div className="flex flex-col items-center">
-                            <FaReact className="text-5xl text-blue-400" />
-                            <span className="mt-2 text-lg font-medium text-blue-400">React</span>
-                        </div>
-                        {/* Node.js */}
-                        <div className="flex flex-col items-center">
-                            <FaNodeJs className="text-5xl text-green-500" />
-                            <span className="mt-2 text-lg font-medium text-green-500">Node.js</span>
-                        </div>
-                        {/* Express */}
-                        <div className="flex flex-col items-center">
-                            <SiExpress className="text-5xl text-gray-800" />
-                            <span className="mt-2 text-lg font-medium text-gray-800">Express</span>
-                        </div>
-                        {/* MongoDB */}
-                        <div className="flex flex-col items-center">
-                            <SiMongodb className="text-5xl text-green-700" />
-                            <span className="mt-2 text-lg font-medium text-green-700">MongoDB</span>
-                        </div>
-                        {/* TypeScript */}
-                        <div className="flex flex-col items-center">
-                            <SiTypescript className="text-5xl text-blue-600" />
-                            <span className="mt-2 text-lg font-medium text-blue-600">TypeScript</span>
-                        </div>
-                        {/* Redis */}
-                        <div className="flex flex-col items-center">
-                            <SiRedis className="text-5xl text-red-500" />
-                            <span className="mt-2 text-lg font-medium text-red-500">Redis</span>
-                        </div>
-                        {/* Tailwind CSS */}
-                        <div className="flex flex-col items-center">
-                            <SiTailwindcss className="text-5xl text-teal-400" />
-                            <span className="mt-2 text-lg font-medium text-teal-400">Tailwind</span>
-                        </div>
-                        {/* SCSS */}
-                        <div className="flex flex-col items-center">
-                            <FaSass className="text-5xl text-pink-500" />
-                            <span className="mt-2 text-lg font-medium text-pink-500">SCSS</span>
-                        </div>
-                        {/* JavaScript */}
-                        <div className="flex flex-col items-center">
-                            <SiJavascript className="text-5xl text-yellow-500" />
-                            <span className="mt-2 text-lg font-medium text-yellow-500">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Services Details Section */}
-            <section className="py-16 bg-gradient-to-r to-[#0d566a] from-[#65690e]">
-                <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
-                        Our Full Stack Solutions
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* Custom Web Application Development */}
-                        <div className=" p-6 rounded-lg shadow hover:shadow-2xl transition duration-300">
-                            <h3 className="text-xl font-semibold mb-2 text-pink-500">Custom Web Applications</h3>
-                            <p className="text-gray-300">
-                                Build scalable and maintainable web solutions tailored to your business needs using MERN stack and modern development practices.
-                            </p>
-                        </div>
-                        {/* Mobile Responsive UI/UX Design */}
-                        <div className=" p-6 rounded-lg shadow hover:shadow-2xl transition duration-300">
-                            <h3 className="text-xl font-semibold mb-2 text-blue-500">Responsive UI/UX Design</h3>
-                            <p className="text-gray-300">
-                                We create intuitive and responsive designs that offer seamless user experiences across desktop, tablet, and mobile devices.
-                            </p>
-                        </div>
-                        {/* API & Microservices Development */}
-                        <div className=" p-6 rounded-lg shadow hover:shadow-2xl transition duration-300">
-                            <h3 className="text-xl font-semibold mb-2 text-green-500">API & Microservices</h3>
-                            <p className="text-gray-300">
-                                Develop robust APIs and microservices to ensure your application is modular, scalable, and easily maintainable.
-                            </p>
-                        </div>
-                        {/* Performance Optimization */}
-                        <div className=" p-6 rounded-lg shadow hover:shadow-2xl transition duration-300">
-                            <h3 className="text-xl font-semibold mb-2 text-yellow-500">Performance Optimization</h3>
-                            <p className="text-gray-300 ">
-                                Implement advanced caching with Redis, optimized database queries, and code improvements to boost performance.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Process Section */}
-            <section className="py-16 bg-gradient-to-r to-[#0d566a] from-[#65690e]">
-                <div className="container mx-auto px-4 text-white">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 ">
-                        Our Development Process
-                    </h2>
-                    <div className="max-w-3xl mx-auto space-y-8">
-                        <div>
-                            <h3 className="text-xl font-semibold mb-1 text-purple-400">1. Requirement Analysis</h3>
-                            <p className="text-gray-300">
-                                We collaborate closely with you to define the project scope, requirements, and success metrics.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-semibold mb-1 text-purple-400">2. Design & Prototyping</h3>
-                            <p className="text-gray-300">
-                                Our design team creates interactive wireframes and prototypes to bring your vision to life.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-semibold mb-1 text-purple-400">3. Development & Testing</h3>
-                            <p className="text-gray-300">
-                                Using agile methodologies, our developers build robust applications while ensuring rigorous testing for quality assurance.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-semibold mb-1 text-purple-400">4. Deployment & Maintenance</h3>
-                            <p className="text-gray-300">
-                                We deploy your application on scalable infrastructure and provide continuous support and optimization.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Portfolio / Case Studies Section */}
-            <section className="bg-gradient-to-r to-[#0d566a] from-[#65690e] py-16">
-                <div className="container mx-auto px-4">
-                    {/* <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                        
-                    </h2> */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div className=" p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2 text-yellow-500">E-commerce Platform</h3>
-                            <p className="text-gray-300">
-                                A full-featured e-commerce solution built using the MERN stack, delivering seamless performance and user experience.
-                            </p>
-                        </div>
-                        <div className=" p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2 text-blue-500">Real-Time Dashboard</h3>
-                            <p className="text-gray-300">
-                                Developed a real-time analytics dashboard with Redis caching and TypeScript for superior performance.
-                            </p>
-                        </div>
-                        <div className=" p-6 rounded-lg shadow">
-                            <h3 className="text-xl font-semibold mb-2 text-pink-500">Social Platform</h3>
-                            <p className="text-gray-300">
-                                A responsive social networking site with dynamic features built with React, Node.js, and MongoDB.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* FAQ Section */}
-            <section className="bg-gradient-to-r to-[#0d566a] from-[#65690e] py-16 text-white">
-                <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                        Frequently Asked Questions
-                    </h2>
-                    <div className="space-y-4 max-w-3xl mx-auto">
-                        <div className="p-4 rounded-lg shadow">
-                            <h3 className="font-semibold text-lg">
-                                What industries do you serve?
-                            </h3>
-                            <p className="text-gray-300 mt-2">
-                                We work with businesses across various industries—from e-commerce and finance to social platforms and healthcare.
-                            </p>
-                        </div>
-                        <div className=" p-4 rounded-lg shadow">
-                            <h3 className="font-semibold text-lg">
-                                Do you offer ongoing maintenance?
-                            </h3>
-                            <p className="text-gray-300 mt-2">
-                                Yes, we provide continuous support and maintenance services to ensure your application remains secure and optimized.
-                            </p>
-                        </div>
-                        <div className=" p-4 rounded-lg shadow">
-                            <h3 className="font-semibold text-lg">
-                                How long does a full stack project take?
-                            </h3>
-                            <p className="text-gray-300 mt-2">
-                                Project timelines vary by scope, but a typical full stack development project ranges from 3 to 6 months.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Call-to-Action Section */}
-            <section className="bg-gradient-to-r from-indigo-700 to-pink-500 text-white py-16">
-                <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Ready to Transform Your Digital Presence?
-                    </h2>
-                    <p className="text-lg md:text-xl mb-8">
-                        Contact us today to kickstart your full stack development project and drive your business forward.
-                    </p>
-                    <a
-                        href="/contact"
-                        className="bg-green-500 text-indigo-600 py-3 px-8 rounded-full font-semibold hover:bg-gray-100 transition"
-                    >
-                        Get in Touch
-                    </a>
-                </div>
-            </section>
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-[#0e3468] to-[#3a195b] text-white py-20">
+        <div className="container mx-auto px-4 text-center py-24">
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <FaLaptopCode className="text-6xl mb-4 text-green-600" />
+          </motion.div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-pink-600">Full</span>{" "}
+            <span className="text-green-600">Stack</span> Development
+          </h1>
+          <p className="text-xl md:text-2xl mb-8">
+            Cutting‑edge{" "}
+            <span className="text-pink-600">MERN</span> solutions with{" "}
+            <span className="text-green-600">TypeScript</span>,{" "}
+            <span className="text-pink-600">Redis</span>,{" "}
+            <span className="text-green-600">Tailwind CSS</span>,{" "}
+            <span className="text-pink-600">SCSS</span> and more.
+          </p>
+          <button
+            onClick={() => navigate("/contact")}
+            className="text-gray-100 py-3 px-6 rounded-full font-semibold bg-gradient-to-r from-[#915EFF] to-purple-600 transition"
+          >
+            Get a Quote
+          </button>
         </div>
-    );
+      </section>
+
+      {/* About Section */}
+      <section className="py-16 bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+            About Our Full Stack Services
+          </h2>
+          <p className="text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
+            Our expertise spans entire tech stacks—from robust backends with
+            Node.js & Express, dynamic front‑ends in React, to advanced features
+            in TypeScript, Redis caching, Tailwind CSS, and SCSS. We build
+            scalable, secure, high‑performance apps that drive growth and delight users.
+          </p>
+        </div>
+      </section>
+
+      {/* Technology Stack Section */}
+      <section className="py-16 bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Our Technology Stack
+          </h2>
+          <div className="flex flex-wrap justify-center gap-8">
+            {[
+              { icon: <FaReact />, label: "React" },
+              { icon: <FaNodeJs />, label: "Node.js" },
+              { icon: <SiExpress />, label: "Express" },
+              { icon: <SiMongodb />, label: "MongoDB" },
+              { icon: <SiTypescript />, label: "TypeScript" },
+              { icon: <SiRedis />, label: "Redis" },
+              { icon: <SiTailwindcss />, label: "Tailwind CSS" },
+              { icon: <FaSass />, label: "SCSS" },
+              { icon: <SiJavascript />, label: "JavaScript" },
+            ].map(({ icon, label }) => (
+              <div key={label} className="flex flex-col items-center">
+                {React.cloneElement(icon, {
+                  className: "text-5xl text-green-600",
+                })}
+                <span className="mt-2 text-lg font-medium text-white">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions Section */}
+      <section className="py-16 bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Our Full Stack Solutions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Custom Web Applications",
+                desc:
+                  "Scalable, maintainable web solutions tailored to your needs using MERN and modern best practices.",
+              },
+              {
+                title: "Responsive UI/UX Design",
+                desc:
+                  "Intuitive, responsive designs ensuring seamless experiences across desktop, tablet, and mobile.",
+              },
+              {
+                title: "API & Microservices",
+                desc:
+                  "Robust APIs and modular microservices architecture for scalability and maintainability.",
+              },
+              {
+                title: "Performance Optimization",
+                desc:
+                  "Advanced Redis caching, optimized queries, and code improvements to maximize speed.",
+              },
+            ].map(({ title, desc }) => (
+              <div
+                key={title}
+                className="bg-slate-900 bg-opacity-50 p-6 rounded-lg shadow hover:shadow-2xl transition duration-300"
+              >
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {title}
+                </h3>
+                <p className="text-gray-300">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-16 bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+            Our Development Process
+          </h2>
+          <div className="max-w-3xl mx-auto space-y-8">
+            {[
+              {
+                step: "1. Requirement Analysis",
+                desc:
+                  "We collaborate to define scope, requirements, and success metrics.",
+              },
+              {
+                step: "2. Design & Prototyping",
+                desc:
+                  "Interactive wireframes and prototypes to visualize your vision.",
+              },
+              {
+                step: "3. Development & Testing",
+                desc:
+                  "Agile development with rigorous testing to ensure quality.",
+              },
+              {
+                step: "4. Deployment & Maintenance",
+                desc:
+                  "Deploy on scalable infrastructure with ongoing support.",
+              },
+            ].map(({ step, desc }) => (
+              <div key={step}>
+                <h3 className="text-xl font-semibold text-gray-200 mb-1">
+                  {step}
+                </h3>
+                <p className="text-gray-300">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies Section */}
+      <section className="py-16 bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Case Studies
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "E-commerce Platform",
+                desc:
+                  "Full‑featured MERN e‑commerce solution with seamless UX.",
+              },
+              {
+                title: "Real-Time Dashboard",
+                desc:
+                  "Analytics dashboard with Redis caching and TypeScript for performance.",
+              },
+              {
+                title: "Social Platform",
+                desc:
+                  "Responsive social network built with React, Node.js & MongoDB.",
+              },
+            ].map(({ title, desc }) => (
+              <div
+                key={title}
+                className="bg-slate-900 bg-opacity-50 p-6 rounded-lg shadow hover:shadow-2xl transition duration-300"
+              >
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {title}
+                </h3>
+                <p className="text-gray-300">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4 max-w-3xl mx-auto">
+            {[
+              {
+                q: "What industries do you serve?",
+                a:
+                  "We work across e‑commerce, finance, social platforms, healthcare, and more.",
+              },
+              {
+                q: "Do you offer ongoing maintenance?",
+                a:
+                  "Yes—continuous support and optimization to keep your app secure and fast.",
+              },
+              {
+                q: "How long does a project take?",
+                a:
+                  "Typically 3–6 months, depending on scope and complexity.",
+              },
+            ].map(({ q, a }) => (
+              <div
+                key={q}
+                className="bg-slate-900 bg-opacity-50 p-6 rounded-lg shadow hover:shadow-2xl transition duration-300"
+              >
+                <h3 className="font-semibold text-lg text-white">{q}</h3>
+                <p className="text-gray-300 mt-2">{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call‑to‑Action Section */}
+      <section className="bg-gradient-to-r from-[#38B6FF] to-purple-600 text-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Transform Your Digital Presence?
+          </h2>
+          <p className="text-lg md:text-xl mb-8">
+            Contact us today to kickstart your full stack development project
+            and drive your business forward.
+          </p>
+          <button
+            onClick={() => navigate("/contact")}
+            className="text-gray-100 py-3 px-6 rounded-full font-semibold bg-gradient-to-r from-[#915EFF] to-purple-600 transition"
+          >
+            Get in Touch
+          </button>
+        </div>
+      </section>
+    </div>
+  );
 };
 
-export default FullStackDevelopement;
+export default FullStackDevelopment;
