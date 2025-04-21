@@ -1,4 +1,9 @@
+// src/Pages/BlogPage/Blog.jsx
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+// Images
 import imgTailwind from "../../assets/blog/featured-blog-post.webp";
 import imgNodeSec from "../../assets/blog/nodejs_security.jpg";
 import imgNextDeploy from "../../assets/blog/images.jfif";
@@ -57,50 +62,228 @@ const posts = [
   },
 ];
 
-const Blog = () => (
-  <section className=" relative bg-gradient-to-r from-[#0e3468] to-[#3a195b] text-white py-32 overflow-hidden">
-    <div className="max-w-7xl mx-auto px-4 text-center mb-12">
-      <motion.h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-lg">
-        Our <span className="text-[#1ea7c9]">From Our Blog</span>
-      </motion.h2>
+export default function Blog() {
+  const canvasRef = useRef(null);
+  const [featured, ...rest] = posts;
+  const secondary = rest.slice(0, 3);
+  const remaining = rest.slice(3);
 
-      <p className="text-gray-300 mt-2">
-        Insights, tutorials, and best practices from our team.
-      </p>
-    </div>
-    <div className="max-w-7xl mx-auto px-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post, idx) => (
-        <motion.article
-          key={post.id}
-          className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow"
+  // ——— pulsating ripple background ———
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    let circles = [];
+    const CIRCLE_COUNT = 4;
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      const maxDim = Math.hypot(canvas.width, canvas.height);
+      circles = Array.from({ length: CIRCLE_COUNT }, (_, i) => ({
+        radius: (maxDim / CIRCLE_COUNT) * i,
+        speed: (maxDim / CIRCLE_COUNT) * 0.005,
+        alpha: 0.2,
+        max: maxDim,
+      }));
+    }
+
+    function draw() {
+      const { width, height } = canvas;
+      ctx.clearRect(0, 0, width, height);
+      const cx = width / 2;
+      const cy = height / 2;
+
+      circles.forEach(c => {
+        c.radius += c.speed;
+        if (c.radius > c.max) c.radius = 0;
+        c.alpha = 0.2 * (1 - c.radius / c.max);
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, c.radius, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(30,167,201,${c.alpha})`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+    draw();
+    return () => window.removeEventListener("resize", resize);
+  }, []);
+  // ——— end ripple setup ———
+
+  return (
+    <section
+      id="blog"
+      className="relative bg-gradient-to-r from-[#0e3468] to-[#3a195b] text-white py-32 overflow-hidden"
+    >
+      {/* ripple canvas */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none"
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Heading */}
+        <motion.div
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: idx * 0.1, duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
-          <div className="overflow-hidden">
-            <img
-              src={post.img}
-              alt={post.title}
-              className="w-full h-48 object-cover transform hover:scale-105 transition-transform"
-            />
-          </div>
-          <div className="p-6">
-            <time className="text-sm text-gray-400">{post.date}</time>
-            <h3 className="mt-2 text-xl font-semibold text-gray-800">
-              {post.title}
-            </h3>
-            <p className="mt-2 text-gray-600">{post.excerpt}</p>
-            <a
-              href={`/blog/${post.id}`}
-              className="inline-block mt-4 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              Read more →
-            </a>
-          </div>
-        </motion.article>
-      ))}
-    </div>
-  </section>
-);
+          <h2 className="text-5xl font-extrabold">
+            From Our <span className="text-cyan-400">Blog</span>
+          </h2>
+          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
+            Insights, tutorials, and best practices from our engineering and design
+            teams.
+          </p>
+        </motion.div>
 
-export default Blog;
+        {/* Featured & Secondary */}
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
+        >
+          {/* Featured */}
+          <motion.article
+            className="relative rounded-3xl overflow-hidden shadow-2xl"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <img
+              src={featured.img}
+              alt={featured.title}
+              className="w-full h-96 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 text-white max-w-lg">
+              <time className="text-sm text-gray-300">{featured.date}</time>
+              <h3 className="mt-2 text-3xl font-bold">{featured.title}</h3>
+              <p className="mt-2 text-gray-200">{featured.excerpt}</p>
+              <Link
+                to={`/blog/${featured.id}`}
+                className="inline-block mt-4 text-sm font-semibold text-cyan-400 hover:text-cyan-300"
+              >
+                Read full article →
+              </Link>
+            </div>
+          </motion.article>
+
+          {/* Secondary */}
+          <div className="grid grid-cols-1 gap-8">
+            {secondary.map((post, idx) => (
+              <motion.article
+                key={post.id}
+                className="relative rounded-2xl overflow-hidden shadow-xl"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ delay: (idx + 1) * 0.1 }}
+              >
+                <img
+                  src={post.img}
+                  alt={post.title}
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute bottom-4 left-4 text-white">
+                  <time className="text-xs text-gray-300">{post.date}</time>
+                  <h4 className="mt-1 text-xl font-semibold">{post.title}</h4>
+                  <Link
+                    to={`/blog/${post.id}`}
+                    className="inline-block mt-2 text-sm text-cyan-400 hover:text-cyan-300"
+                  >
+                    Continue reading →
+                  </Link>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Remaining Posts */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
+        >
+          {remaining.map((post, idx) => (
+            <motion.article
+              key={post.id}
+              className="bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ delay: (idx + 1) * 0.1 }}
+            >
+              <img
+                src={post.img}
+                alt={post.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <time className="text-xs text-gray-400">{post.date}</time>
+                <h5 className="mt-2 text-lg font-semibold">{post.title}</h5>
+                <p className="mt-1 text-gray-300 text-sm">{post.excerpt}</p>
+                <Link
+                  to={`/blog/${post.id}`}
+                  className="inline-block mt-4 text-sm font-semibold text-cyan-400 hover:text-cyan-300"
+                >
+                  Read more →
+                </Link>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
+
+        {/* Newsletter CTA */}
+        <motion.div
+          className="mt-20 bg-gray-800 rounded-3xl p-10 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h3 className="text-2xl font-bold mb-4">Stay Updated</h3>
+          <p className="text-gray-400 mb-6">
+            Subscribe to our newsletter for the latest articles and resources.
+          </p>
+          <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+            <input
+              type="email"
+              placeholder="Your email address"
+              className="flex-grow px-4 py-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="px-6 py-2 rounded-lg bg-cyan-400 text-gray-900 font-semibold hover:bg-cyan-300 transition"
+            >
+              Subscribe
+            </button>
+          </form>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
