@@ -72,7 +72,7 @@ const projects = [
   {
     id: 6,
     title: "Admin Panel",
-    description: "E‑commerce admin console.",
+    description: "E‑commerce admin console for managing products, orders, and customers, providing a comprehensive solution for e‑commerce businesses.",
     image: project6,
     link: "https://fem-cartel.vercel.app/admin/dashboard",
     tags: ["React.js","Express.js", "Node.js","MongoDB"],

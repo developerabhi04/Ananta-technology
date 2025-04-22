@@ -12,7 +12,6 @@ import Smo from "./Pages/Page/Services/Smo.jsx";
 import Cms from "./Pages/Page/Services/Cms.jsx";
 import FullStackDevelopement from "./Pages/Page/Services/FullStackDevelopement.jsx";
 import Learn from "./Pages/Home/Learn.jsx";
-
 import ProjectDetails from "./Pages/Page/Projects/ProjectDetails.jsx";
 import UIUXDesign from "./Pages/Page/Services/ContentWriting.jsx";
 import ProjectsPage from "./Pages/Page/Projects/ProjectsPage.jsx";
@@ -24,6 +23,7 @@ const NotFound = lazy(() => import("./Components/NotFound"));
 const Privacy = lazy(() => import("./Pages/Site/Privacy.jsx"));
 const Policy = lazy(() => import("./Pages/Site/Policy.jsx"));
 const Copyright = lazy(() => import("./Pages/Site/Copyright.jsx"));
+
 
 const App = () => {
   return (
