@@ -2,10 +2,9 @@ import ParticleBg from '../../../Particles/ParticleBg';
 import vid from "../../../assets/143016-781982529.mp4";
 import { motion } from "framer-motion";
 import { useState } from 'react';
-import { Alert, Snackbar } from "@mui/material";
+
 import emailjs from '@emailjs/browser';
 import styled from "styled-components";
-import Bottomline from "../../../Components/BottomLine/Bottomline";
 
 export const ErrorText = styled.div`
   color: red;
@@ -13,12 +12,7 @@ export const ErrorText = styled.div`
   text-align: left;
 `;
 
-const FormContainer = styled.div`
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  padding: 2rem;
-`;
+
 
 const ContactPage = () => {
   const [open, setOpen] = useState(false);
@@ -75,9 +69,6 @@ const ContactPage = () => {
       .finally(() => setLoading(false));
   };
 
-  const handleCloseSnack = (_, reason) => {
-    if (reason !== 'clickaway') setOpen(false);
-  };
 
   return (
     <div className="relative min-h-screen bg-gradient-to-r from-[#1a041f] to-[#05000a] py-36 flex flex-col items-center justify-start overflow-hidden">
@@ -90,32 +81,7 @@ const ContactPage = () => {
         <ParticleBg />
       </div>
 
-      {/* Get a Quote Section */}
-      <section className="relative z-30 w-full max-w-4xl text-center px-4 mb-16">
-        <motion.h2 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-4xl lg:text-5xl font-extrabold text-white mb-4">
-          Get a <span className="text-[#915EFF]">Quote</span>
-        </motion.h2>
-        <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.5 }} className="mx-auto w-24">
-          <Bottomline />
-        </motion.div>
-        <p className="text-gray-300 text-lg mb-8">Tell us about your project and we'll provide a tailored estimate.</p>
-        <FormContainer>
-          <form onSubmit={handleSubmit} className="grid gap-6">
-            <input name="name" value={form.name} onChange={handleChange} placeholder="Your Name" className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:ring-2 focus:ring-[#915EFF] outline-none" />
-            {errors.name && <ErrorText>{errors.name}</ErrorText>}
-            <input name="email" value={form.email} onChange={handleChange} placeholder="Email Address" className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:ring-2 focus:ring-[#915EFF] outline-none" />
-            {errors.email && <ErrorText>{errors.email}</ErrorText>}
-            <input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone Number" className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:ring-2 focus:ring-[#915EFF] outline-none" />
-            {errors.phone && <ErrorText>{errors.phone}</ErrorText>}
-            <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Project Details" className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:ring-2 focus:ring-[#915EFF] outline-none" />
-            {errors.message && <ErrorText>{errors.message}</ErrorText>}
-            <button type="submit" disabled={loading} className={`w-full py-3 rounded-full bg-gradient-to-r from-[#915EFF] to-purple-600 text-white font-bold ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'} transition`}>{loading ? 'Sending...' : 'Get Quote'}</button>
-          </form>
-        </FormContainer>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleCloseSnack} anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}>
-          <Alert onClose={handleCloseSnack} severity="success" variant="filled">Thanks! We’ll be in touch shortly.</Alert>
-        </Snackbar>
-      </section>
+     
 
       {/* Contact & Map Section */}
       <section className="w-full max-w-6xl flex flex-col lg:flex-row gap-12 z-30 px-4">
