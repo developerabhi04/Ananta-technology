@@ -1,11 +1,13 @@
 import { Helmet } from "react-helmet-async"
 import About from "../Pages/Home/About"
 import Banner from "../Pages/Home/Banner"
-import Contact from "../Pages/Home/Contact"
+// import Contact from "../Pages/Home/Contact"
 import Projects from "../Pages/Home/Projects"
 import Services from "../Pages/Home/Services"
 import UserOption from "./UserOption"
 import Blog from "../Pages/Home/Blog"
+import ContactForm from "../Pages/Home/Quote"
+import DigitalAgencyProcess from "../Pages/Home/Digital"
 
 
 const HomeLayout = () => {
@@ -27,8 +29,10 @@ const HomeLayout = () => {
       <About />
       <Services />
       <Projects />
+      <DigitalAgencyProcess/>
       <Blog/>
-      <Contact />
+      <ContactForm/>
+      {/* <Contact /> */}
       <UserOption />
     </>
   )
