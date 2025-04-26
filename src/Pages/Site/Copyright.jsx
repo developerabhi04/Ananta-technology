@@ -1,66 +1,97 @@
+// src/components/Copyright.jsx
+import React from "react";
+import { motion } from "framer-motion";
+import { FaCopyright } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
+const items = [
+  {
+    title: "Ownership of Content",
+    desc: "All content, including text, images, code, designs, software, and graphics, on Ananta Technology’s website and platforms is the intellectual property of Ananta Technology or its licensors, protected by copyright laws.",
+  },
+  {
+    title: "Use of Materials",
+    desc: "You may not copy, reproduce, distribute, transmit, display, or create derivative works from any content without prior written consent from Ananta Technology, except where explicitly permitted for personal, non-commercial use.",
+  },
+  {
+    title: "Reporting Infringement",
+    desc: (
+      <>
+        If you believe your work has been used without authorization, contact us at{" "}
+        <a href="mailto:work.anantatechnologies@gmail.com" className="text-blue-400 underline">
+          work.anantatechnologies@gmail.com
+        </a>{" "}
+        with your name, contact info, description of the work, infringing URL, unauthorized use statement, and your signature.
+      </>
+    ),
+  },
+  {
+    title: "Response & Removal",
+    desc: "Upon receiving a valid notice, we will investigate and may remove or restrict access to infringing material. Repeat infringers’ accounts may be terminated.",
+  },
+  {
+    title: "Policy Updates",
+    desc: "We may update this policy from time to time; changes will be posted here with a new effective date.",
+  },
+];
 
 const Copyright = () => {
-    return (
-        <div className="bg-white text-gray-800 px-6 py-24 lg:px-20 max-w-5xl mx-auto">
-            {/* Header */}
-            <header className="mb-12">
-                <h1 className="text-4xl font-bold mb-2">Copyright Policy</h1>
-                <p className="text-gray-600 text-sm">Effective Date: March 31, 2025</p>
-            </header>
+  const navigate = useNavigate();
 
-            {/* Section 1 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">1. Ownership of Content</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    All content, including but not limited to text, images, code, designs, software, and graphics, made available on Ananta Technology website and platforms is the intellectual property of Ananta Technology or its licensors, and is protected by applicable copyright laws.
-                </p>
-            </section>
-
-            {/* Section 2 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">2. Use of Materials</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    You may not copy, reproduce, distribute, transmit, display, or create derivative works from any content on our site without prior written consent from Ananta Technology, except where explicitly permitted (e.g., for personal, non-commercial use).
-                </p>
-            </section>
-
-            {/* Section 3 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">3. Reporting Copyright Infringement</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    If you believe that your copyrighted work has been used in a way that constitutes copyright infringement, please contact us at <a href="mailto:work.anantatechnologies@gmail.com" className="text-blue-600 underline">work.anantatechnologies@gmail.com</a> with the following information:
-                </p>
-                <ul className="list-disc list-inside text-gray-700 mt-2">
-                    <li>Your name and contact information</li>
-                    <li>Description of the copyrighted work</li>
-                    <li>URL or location of the infringing content</li>
-                    <li>A statement that you believe the use is unauthorized</li>
-                    <li>Your electronic or physical signature</li>
-                </ul>
-            </section>
-
-            {/* Section 4 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">4. Response and Removal</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    Upon receiving a valid copyright notice, we will promptly investigate and may remove or restrict access to the infringing material. We reserve the right to terminate accounts of repeat infringers.
-                </p>
-            </section>
-
-            {/* Section 5 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">5. Changes to This Policy</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    We may update this Copyright Policy from time to time. All changes will be posted on this page with an updated effective date.
-                </p>
-            </section>
-
-            {/* Footer */}
-            <footer className="pt-10 border-t mt-12 text-sm text-gray-600">
-                <p>&copy; {new Date().getFullYear()} Ananta Technology. All rights reserved.</p>
-            </footer>
+  return (
+    <div className="min-h-screen">
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-[#0e3468] to-[#3a195b] text-white py-36">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <FaCopyright className="text-6xl mb-4 text-green-400 mx-auto" />
+          </motion.div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-2">Copyright Policy</h1>
+          <p className="text-sm md:text-base text-gray-300">Effective Date: March 31, 2025</p>
         </div>
-    );
+      </section>
+
+      {/* Content */}
+      <section className="py-16 bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] text-white">
+        <div className="container mx-auto px-4 max-w-3xl space-y-12">
+          {items.map(({ title, desc }) => (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-2xl font-semibold mb-2">{title}</h2>
+              <p className="text-gray-200 leading-relaxed">{desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-gradient-to-r from-[#38B6FF] to-purple-600 text-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Have a question or need help?
+          </h2>
+          <p className="text-lg md:text-xl mb-8">
+            Reach out to our legal team for any copyright inquiries.
+          </p>
+          <button
+            onClick={() => navigate("/contact-page")}
+            className="inline-block bg-gradient-to-r from-[#915EFF] to-purple-600 py-3 px-8 rounded-full font-semibold transition hover:opacity-90"
+          >
+            Contact Us
+          </button>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Copyright;

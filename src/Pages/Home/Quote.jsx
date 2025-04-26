@@ -1,5 +1,5 @@
 // src/components/ContactForm/ContactForm.js
-import React, { useState, useRef, useEffect } from "react";
+import  { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Bottomline from "../../Components/BottomLine/Bottomline";
 import styled from "styled-components";
@@ -283,7 +283,7 @@ const ContactForm = () => {
                       ${
                         sel
                           ? "bg-[#915EFF] text-white border-[#915EFF]"
-                          : "bg-transparent text-gray-300 border-gray-600 hover:border-gray-400"
+                          : "bg-transparent text-gray-300 border-gray-300 hover:border-purple-600"
                       }
                     `}
                   >

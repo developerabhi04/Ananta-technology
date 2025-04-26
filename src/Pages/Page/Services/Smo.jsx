@@ -34,7 +34,7 @@ const Smo = () => {
             strategies.
           </p>
           <button
-            onClick={() => navigate("/contact")}
+            onClick={() => navigate("/contact-page")}
             className="text-gray-100 py-3 px-6 rounded-full font-semibold bg-gradient-to-r from-[#915EFF] to-purple-600 transition"
           >
             Get Started
@@ -251,7 +251,7 @@ const Smo = () => {
             real results.
           </p>
           <button
-            onClick={() => navigate("/contact")}
+            onClick={() => navigate("/contact-page")}
             className="text-gray-100 py-3 px-6 rounded-full font-semibold bg-gradient-to-r from-[#915EFF] to-purple-600 transition"
           >
             Contact Us

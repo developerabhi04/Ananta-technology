@@ -68,9 +68,9 @@ const DigitalAgencyProcess = () => (
       >
         <path
           d="
-            M40,60 
+            M50,70,  
             C20,60 20,140 50,180 
-            S80,300 50,340
+            S10,500, 10, 330,440
           "
           stroke="rgba(255,255,255,0.3)"
           strokeWidth="0.3"
@@ -91,7 +91,7 @@ const DigitalAgencyProcess = () => (
           className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-lg"
           variants={cardVariants}
         >
-          Our Digital<span className="text-[#1ea7c9]">Agency</span>
+          Our <span className="text-[#1ea7c9]">Process</span>
         </motion.h2>
         <motion.div variants={cardVariants}>
           <Bottomline />
@@ -135,7 +135,7 @@ const DigitalAgencyProcess = () => (
         ))}
 
         {/* Optional extra image */}
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <img
             src="https://storage.googleapis.com/a1aa/image/c2e511c4-bc60-444c-a478-4d3bccbb4818.jpg"
             alt="Additional process illustration"
@@ -143,7 +143,7 @@ const DigitalAgencyProcess = () => (
             height={220}
             className="w-full max-w-[280px] rounded-lg shadow-lg"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   </main>

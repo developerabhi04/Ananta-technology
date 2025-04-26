@@ -1,84 +1,155 @@
+import { motion } from "framer-motion";
+import {
+  FaShieldAlt,
+  FaInfoCircle,
+  FaUser,
+  FaExchangeAlt,
+  FaCookieBite,
+  FaLock,
+  FaUserShield,
+  FaRegNewspaper,
+} from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
+const privacySections = [
+  {
+    icon: FaInfoCircle,
+    title: "Introduction",
+    desc:
+      "Ananta Technology is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share your personal information when you use our websites, services, and applications.",
+  },
+  {
+    icon: FaUser,
+    title: "Information We Collect",
+    desc:
+      "We collect personal information you provide directly (name, email, payment info) and automatically via cookies, analytics, and usage data.",
+  },
+  {
+    icon: FaShieldAlt,
+    title: "How We Use Your Information",
+    desc:
+      "We use your information to deliver and improve our services, communicate with you, process transactions, provide support, and comply with legal requirements.",
+  },
+  {
+    icon: FaExchangeAlt,
+    title: "Sharing of Information",
+    desc:
+      "We do not sell personal data. We share info with trusted third-party providers (payment processors, analytics, hosting) who help operate our business.",
+  },
+  {
+    icon: FaCookieBite,
+    title: "Cookies & Tracking",
+    desc:
+      "We use cookies and similar technologies to enhance your experience, analyze usage, and deliver personalized content. You control cookies via your browser settings.",
+  },
+  {
+    icon: FaLock,
+    title: "Data Security",
+    desc:
+      "We implement industry-standard security measures to protect your data, but no transmission or storage method is 100% secure.",
+  },
+  {
+    icon: FaUserShield,
+    title: "Your Rights",
+    desc:
+      "You may request access to, correction of, or deletion of your personal data at any time. You may have additional rights under applicable data protection laws.",
+  },
+  {
+    icon: FaRegNewspaper,
+    title: "Changes to This Policy",
+    desc:
+      "We may update this Privacy Policy periodically. Material changes will be notified via email or a website notice.",
+  },
+];
 
 const Privacy = () => {
-    return (
-        <div className="bg-white text-gray-800 px-6 py-24 lg:px-20 max-w-5xl mx-auto">
-            {/* Hero Section */}
-            <header className="mb-12">
-                <h1 className="text-4xl font-bold mb-2">Privacy Policy</h1>
-                <p className="text-gray-600 text-sm">Effective Date: March 31, 2025</p>
-            </header>
+  const navigate = useNavigate();
 
-            {/* Section 1 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">1. Introduction</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    Ananta Technology is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share your personal information when you use our websites, services, and applications.
-                </p>
-            </section>
-
-            {/* Section 2 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">2. Information We Collect</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    We collect personal information that you provide directly to us, such as your name, email address, and payment information. We may also collect information automatically through cookies, analytics, and usage data.
-                </p>
-            </section>
-
-            {/* Section 3 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">3. How We Use Your Information</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    We use your information to provide and improve our services, communicate with you, process transactions, provide customer support, and comply with legal obligations.
-                </p>
-            </section>
-
-            {/* Section 4 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">4. Sharing of Information</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    We do not sell your personal information. We may share information with trusted third-party service providers to help us operate our business, such as payment processors, analytics providers, and hosting services.
-                </p>
-            </section>
-
-            {/* Section 5 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">5. Cookies & Tracking</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    We use cookies and similar tracking technologies to enhance your experience, analyze usage, and deliver personalized content. You can control cookies through your browser settings.
-                </p>
-            </section>
-
-            {/* Section 6 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">6. Data Security</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    We implement industry-standard security measures to protect your data. However, no method of transmission over the Internet or electronic storage is 100% secure.
-                </p>
-            </section>
-
-            {/* Section 7 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">7. Your Rights</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    You may request access to, correction of, or deletion of your personal information at any time. Depending on your location, you may have additional rights under applicable data protection laws.
-                </p>
-            </section>
-
-            {/* Section 8 */}
-            <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">8. Changes to This Policy</h2>
-                <p className="text-gray-700 leading-relaxed">
-                    We may update this Privacy Policy from time to time. If we make material changes, we will notify you via email or through a notice on our website.
-                </p>
-            </section>
-
-            {/* Contact Info */}
-            <footer className="pt-10 border-t mt-12 text-sm text-gray-600">
-                <p>If you have any questions or concerns about this Privacy Policy, please contact us at <a href="mailto:work.anantatechnologies@gmail.com" className="text-blue-600 underline">work.anantatechnologies@gmail.com</a>.</p>
-            </footer>
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-[#0e3468] to-[#3a195b] text-white py-36">
+        <div className="container mx-auto px-4 text-center space-y-4">
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <FaShieldAlt className="text-6xl mb-4 text-green-400 mx-auto" />
+          </motion.div>
+          <motion.h1
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold"
+          >
+            Privacy Policy
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-sm text-gray-300"
+          >
+            Effective Date: March 31, 2025
+          </motion.p>
         </div>
-    );
+      </section>
+
+      {/* Content Sections */}
+      <section className="py-16 bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] text-white">
+        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
+          {privacySections.map(({ icon: Icon, title, desc }, idx) => (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="flex items-start space-x-4"
+            >
+              <Icon className="text-3xl text-green-400 mt-1" />
+              <div>
+                <h3 className="text-2xl font-semibold mb-2">{title}</h3>
+                <p className="leading-relaxed text-gray-200">{desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Call-to-Action */}
+      <section className="bg-gradient-to-r from-[#38B6FF] to-purple-600 text-white py-16">
+        <div className="container mx-auto px-4 text-center space-y-4">
+          <motion.h2
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="text-3xl md:text-4xl font-bold"
+          >
+            Questions or Concerns?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-lg"
+          >
+            Contact our team for any privacy-related inquiries.
+          </motion.p>
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            onClick={() => navigate("/contact-page")}
+            className="bg-gradient-to-r from-[#915EFF] to-purple-600 py-3 px-8 rounded-full font-semibold hover:opacity-90 transition"
+          >
+            Contact Us
+          </motion.button>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Privacy;

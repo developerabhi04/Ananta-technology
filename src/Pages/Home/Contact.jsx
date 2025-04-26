@@ -174,7 +174,7 @@ const Contact = () => {
                     </form>
                 </div>
                 <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleCloseSnack} anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}>
-                    <Alert onClose={handleCloseSnack} severity="success" variant="filled">Thank you! We'll reach out soon.</Alert>
+                    <Alert onClose={handleCloseSnack} severity="success" variant="filled">Thank you! {"We'll"} reach out soon.</Alert>
                 </Snackbar>
             </div>
         </section>

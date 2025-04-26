@@ -30,8 +30,8 @@ const HomeLayout = () => {
       <Services />
       <Projects />
       <DigitalAgencyProcess/>
-      <Blog/>
-      <ContactForm/>
+      <Blog />
+      
       {/* <Contact /> */}
       <UserOption />
     </>

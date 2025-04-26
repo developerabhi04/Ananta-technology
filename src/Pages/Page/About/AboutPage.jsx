@@ -46,7 +46,7 @@ const AboutPage = () => {
                     variants={fadeIn}
                     custom={0}
                 >
-                    About <span className="text-yellow-400">Ananta</span> Technologies
+                    About <span className="text-purple-500">Ananta</span> Technologies
                 </motion.h1>
                 <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}
@@ -68,7 +68,7 @@ const AboutPage = () => {
             </section>
 
             {/* Our Journey */}
-            <section className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  py-20 px-6 sm:px-16">
+            <section className="relative bg-gradient-to-r from-[#0f6ca5] to-[#640e9e]  text-white overflow-hidden  py-20 px-6 sm:px-16">
                 <div className="max-w-4xl mx-auto  md:grid-cols-2 gap-12 items-center">
                     <motion.div
                         initial="hidden"
@@ -87,7 +87,7 @@ const AboutPage = () => {
 
                             Today, as a lean but mighty team of passionate full‑stack engineers, designers, and strategists, we combine agility with deep technical know‑how to deliver solutions that scale. Whether you need a native mobile app, a powerful MERN‑stack dashboard, a high‑impact SEO strategy, or an elegant CMS, Ananta Technologies is your partner for turning vision into reality.
                         </p>
-                        <Link to="/contact-page" className="inline-block mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">
+                        <Link to="/contact-page" className="inline-block mt-4 px-6 py-3 bg-purple-600 text-white rounded-lg shadow hover:bg-purple-700 transition">
                             Get in Touch
                         </Link>
                     </motion.div>
@@ -96,7 +96,7 @@ const AboutPage = () => {
             </section>
 
             {/* Stats (Two-color background) */}
-            <section className="w-full bg-gradient-to-r from-yellow-400 to-red-400 text-white py-16">
+            <section className="w-fullrelative bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] py-20 px-6 sm:px-16 text-white overflow-hidden">
                 <div className="w-full max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-4 gap-8 text-center px-6 sm:px-0">
                     {stats.map((s, i) => (
                         <motion.div
@@ -114,7 +114,7 @@ const AboutPage = () => {
             </section>
 
             {/* Core Values */}
-            <section className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-20 px-6 sm:px-16">
+            <section className="relative bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] py-20 px-6 sm:px-16 text-white overflow-hidden">
                 <h2 className="text-3xl font-bold text-center mb-12 text-white">Our Core Values</h2>
                 <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {values.map((v, i) => (
@@ -137,7 +137,7 @@ const AboutPage = () => {
             </section>
 
             {/* Testimonials */}
-            <section className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  py-20 px-6 sm:px-16 text-white">
+            <section className="relative bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] py-20 px-6 sm:px-16 text-white overflow-hidden">
                 <h2 className="text-3xl font-bold text-center mb-8">What Clients Say</h2>
                 <div className="max-w-4xl mx-auto space-y-12">
                     {testimonials.map((t, i) => (
@@ -158,12 +158,12 @@ const AboutPage = () => {
             </section>
 
             {/* Call to Action */}
-            <section className="py-20 text-center px-6 sm:px-16 bg-gray-800 text-white">
+            <section className="py-20 text-center px-6 sm:px-16 bg-gradient-to-r  from-[#38B6FF] to-purple-600 text-white ">
                 <h2 className="text-3xl font-bold mb-4">Ready to Elevate Your Business?</h2>
                 <p className="max-w-2xl mx-auto mb-6">
                     Partner with us for solutions that drive growth, efficiency, and innovation. Let’s build something remarkable together!
                 </p>
-                <Link to="/contact-page" className="inline-block px-8 py-4 bg-yellow-400 text-gray-800 font-semibold rounded-lg shadow hover:bg-yellow-500 transition">
+                <Link to="/contact-page" className="inline-block px-8 py-4 bg-purple-600 text-white font-semibold rounded-lg shadow hover:bg-purple-500 transition">
                     Contact Us Today
                 </Link>
             </section>

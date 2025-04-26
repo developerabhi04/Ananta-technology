@@ -1,5 +1,4 @@
-// src/Pages/BlogPage/Blog.jsx
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -62,7 +61,7 @@ const posts = [
   },
 ];
 
-export default function Blog() {
+const Blog = () => {
   const canvasRef = useRef(null);
   const [featured, ...rest] = posts;
   const secondary = rest.slice(0, 3);
@@ -140,8 +139,7 @@ export default function Blog() {
             From Our <span className="text-cyan-400">Blog</span>
           </h2>
           <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-            Insights, tutorials, and best practices from our engineering and design
-            teams.
+            Insights, tutorials, and best practices from our engineering and design teams.
           </p>
         </motion.div>
 
@@ -151,24 +149,14 @@ export default function Blog() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.1 } },
-          }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
         >
           {/* Featured */}
           <motion.article
             className="relative rounded-3xl overflow-hidden shadow-2xl"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           >
-            <img
-              src={featured.img}
-              alt={featured.title}
-              className="w-full h-96 object-cover"
-            />
+            <img src={featured.img} alt={featured.title} className="w-full h-96 object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 text-white max-w-lg">
               <time className="text-sm text-gray-300">{featured.date}</time>
@@ -189,17 +177,10 @@ export default function Blog() {
               <motion.article
                 key={post.id}
                 className="relative rounded-2xl overflow-hidden shadow-xl"
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 },
-                }}
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                 transition={{ delay: (idx + 1) * 0.1 }}
               >
-                <img
-                  src={post.img}
-                  alt={post.title}
-                  className="w-full h-64 object-cover"
-                />
+                <img src={post.img} alt={post.title} className="w-full h-64 object-cover" />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-4 left-4 text-white">
                   <time className="text-xs text-gray-300">{post.date}</time>
@@ -222,26 +203,16 @@ export default function Blog() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.1 } },
-          }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
         >
           {remaining.map((post, idx) => (
             <motion.article
               key={post.id}
               className="bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               transition={{ delay: (idx + 1) * 0.1 }}
             >
-              <img
-                src={post.img}
-                alt={post.title}
-                className="w-full h-48 object-cover"
-              />
+              <img src={post.img} alt={post.title} className="w-full h-48 object-cover" />
               <div className="p-6">
                 <time className="text-xs text-gray-400">{post.date}</time>
                 <h5 className="mt-2 text-lg font-semibold">{post.title}</h5>
@@ -257,33 +228,10 @@ export default function Blog() {
           ))}
         </motion.div>
 
-        {/* Newsletter CTA */}
-        <motion.div
-          className="mt-20 bg-gray-800 rounded-3xl p-10 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-2xl font-bold mb-4">Stay Updated</h3>
-          <p className="text-gray-400 mb-6">
-            Subscribe to our newsletter for the latest articles and resources.
-          </p>
-          <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-grow px-4 py-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="px-6 py-2 rounded-lg bg-cyan-400 text-gray-900 font-semibold hover:bg-cyan-300 transition"
-            >
-              Subscribe
-            </button>
-          </form>
-        </motion.div>
+        {/* Newsletter CTA (commented) */}
       </div>
     </section>
   );
-}
+};
+
+export default Blog;

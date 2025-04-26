@@ -33,27 +33,57 @@ const renderServiceIcon = (title) => {
   const lower = title.toLowerCase();
   if (lower.includes("ui") && lower.includes("ux"))
     return <FaDraftingCompass className="inline-block text-xl text-pink-500" />;
-  if (lower.includes("mobile"))
+  
+  if (lower.includes("no-code"))
     return <FaMobileAlt className="inline-block text-xl text-blue-500" />;
+  
   if (lower.includes("e-commerce"))
     return <FaShoppingCart className="inline-block text-xl text-green-500" />;
+  
   if (lower.includes("social media"))
     return <FaShareAlt className="inline-block text-xl text-purple-500" />;
+  
   if (lower.includes("content management"))
     return <FaCogs className="inline-block text-xl text-yellow-500" />;
+
   if (lower.includes("full stack"))
     return <FaLaptopCode className="inline-block text-xl text-indigo-500" />;
   return null;
 };
 
 export const services = [
-  { title: "UI & UX Design", desc: "Intuitive UI/UX...", link: "/services/ui-ux-design" },
-  { title: "Mobile App & Web Design & Dev", desc: "Innovative mobile...", link: "/services/mobile-web-design-dev" },
-  { title: "E-commerce Strategy Projects", desc: "Strategic planning...", link: "/services/ecommerce-strategy" },
-  { title: "Social Media Campaigns", desc: "Creative campaigns...", link: "/services/social-media-campaigns" },
-  { title: "Content Management Systems", desc: "Robust CMS solutions...", link: "/services/content-management" },
-  { title: "Full Stack Development", desc: "Comprehensive development...", link: "/services/full-stack-development" },
+  { 
+    title: "UI & UX Design", 
+    desc: "Intuitive UI/UX design that delights users and drives engagement.", 
+    link: "/services/ui-ux-design" 
+  },
+  { 
+    title: "No-Code App & Web Development", 
+    desc: "Build powerful mobile and web applications without writing a single line of code, plus expert web design.", 
+    link: "/services/no-code-app-web-development" 
+  },
+  { 
+    title: "E-commerce Strategy Projects", 
+    desc: "Strategic planning and execution for online stores that convert and scale.", 
+    link: "/services/ecommerce-strategy" 
+  },
+  { 
+    title: "Social Media Campaigns", 
+    desc: "Creative, data-driven campaigns that grow your brand presence and engagement.", 
+    link: "/services/social-media-campaigns" 
+  },
+  { 
+    title: "Content Management Systems", 
+    desc: "Robust CMS solutions for easy content publishing and management.", 
+    link: "/services/content-management" 
+  },
+  { 
+    title: "Full Stack Development", 
+    desc: "End-to-end development services covering front-end, back-end, and everything in between.", 
+    link: "/services/full-stack-development" 
+  },
 ];
+
 
 const Services = () => {
   const navigate = useNavigate();

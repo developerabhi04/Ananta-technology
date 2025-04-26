@@ -16,6 +16,8 @@ import ProjectDetails from "./Pages/Page/Projects/ProjectDetails.jsx";
 import UIUXDesign from "./Pages/Page/Services/ContentWriting.jsx";
 import ProjectsPage from "./Pages/Page/Projects/ProjectsPage.jsx";
 import AboutPage from "./Pages/Page/About/AboutPage.jsx";
+import BlogPost from "./Pages/Page/Blog/BlogPost";
+import Blog from "./Pages/Home/Blog.jsx";
 
 
 const HomeLayout = lazy(() => import("./Components/HomeLayout.jsx"));
@@ -37,13 +39,15 @@ const App = () => {
             <Route path="/contact-page" element={<ContactPage />} />
             <Route path="/about-page" element={<AboutPage />} />
             <Route path="/learn-more" element={<Learn />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost/>} />
            
 
             <Route path="projects/project-details/:id" element={<ProjectDetails />} />
             <Route path="projects/project-page" element={<ProjectsPage />} />
 
             <Route path="/services/ui-ux-design" element={<UIUXDesign />} />
-            <Route path="/services/mobile-web-design-dev" element={<Dev />} />
+            <Route path="/services/no-code-app-web-development" element={<Dev />} />
             <Route path="/services/ecommerce-strategy" element={<EcomStrategy />} />
             <Route path="/services/social-media-campaigns" element={<Smo />} />
             <Route path="/services/content-management" element={<Cms />} />

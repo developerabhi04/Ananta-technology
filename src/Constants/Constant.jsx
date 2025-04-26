@@ -1,38 +1,12 @@
-// import {
-//   web,
-//   frontend,
-//   design,
-//   backend,
-//   fullStack,
-//   cloud,
-//   html,
-//   css,
-//   javascript,
-//   reactjs,
-//   formik,
-//   redux,
-//   mui,
-//   tailwind,
-//   scss,
-//   nodejs,
-//   expressjs,
-//   mongodb,
-//   mongoose,
-//   git,
-//   github,
-//   EC2,
-//   S3,
-//   vscode,
-//   ChatGPT,
-//   chrome,
-//   mongodbCompass,
-//   postman,
-//   ubuntu,
-//   Impress,
-//   e_commerce,
-//   proConnectup,
-//   portfolio,
-// } from "../assets";
+import imgTailwind from '../assets/blog/featured-blog-post.webp';
+import imgNodeSec from '../assets/blog/nodejs_security.jpg';
+import imgNextDeploy from '../assets/blog/images.jfif';
+import imgGraphQL from '../assets/blog/Banner-3.png';
+import imgWebpack from '../assets/blog/hq720.jpg';
+import imgDocker from '../assets/blog/Docker-Image-Creation.png';
+
+
+
 
 const navLinks = [
     {
@@ -362,6 +336,126 @@ const projects = [
     // },
 ];
 
+
+ const posts = [
+    {
+      id: 1,
+      title: "10 Tailwind CSS Tricks You Didn’t Know",
+      date: "April 12, 2025",
+      img: imgTailwind,
+      content: `
+  **Introduction**
+  Tailwind CSS has exploded in popularity, but many powerful utilities remain underused.
+  
+  **Key Tricks**
+  1. \`bg-clip-text\` for gradient text.
+  2. \`line-clamp\` plugin for truncating blocks.
+  3. \`aspect-w/h\` for aspect ratio control.
+  
+  **Conclusion**
+  By mastering these, your designs will be much more efficient and flexible.
+  `,
+    },
+    {
+      id: 2,
+      title: "Node.js Security Best Practices",
+      date: "March 28, 2025",
+      img: imgNodeSec,
+      content: `
+  **Overview**
+  Node.js apps face unique security challenges. Here are the top practices.
+  
+  **Best Practices**
+  - Validate all user input to prevent injection.
+  - Use \`helmet\` middleware to set HTTP headers.
+  - Keep dependencies up to date via \`npm audit\`.
+  
+  **Next Steps**
+  Integrate automated scans into your CI pipeline.
+  `,
+    },
+    {
+      id: 3,
+      title: "Deploying Next.js on Vercel",
+      date: "February 19, 2025",
+      img: imgNextDeploy,
+      content: `
+  **Why Vercel?**
+  Vercel offers instant static & serverless deployments for Next.js.
+  
+  **Steps**
+  1. Install \`vercel\` CLI: \`npm i -g vercel\`.
+  2. Run \`vercel\` in your project root.
+  3. Configure environment variables in dashboard.
+  
+  **Tips**
+  Use preview deployments for each PR.
+  `,
+    },
+    {
+      id: 4,
+      title: "GraphQL vs REST: When to Use Which",
+      date: "January 05, 2025",
+      img: imgGraphQL,
+      content: `
+  **REST**
+  - Stable and simple for CRUD.
+  - Use HTTP verbs: GET, POST, PUT, DELETE.
+  
+  **GraphQL**
+  - Fetch multiple resources in one request.
+  - Strongly-typed schema.
+  
+  **When to Choose**
+  - Use REST for simple CRUD apps.
+  - Use GraphQL for complex data relationships.
+  `,
+    },
+    {
+      id: 5,
+      title: "Webpack Performance Optimization",
+      date: "December 15, 2024",
+      img: imgWebpack,
+      content: `
+  **Bundle Size**
+  - Use \`SplitChunksPlugin\`.
+  - Enable tree-shaking with \`sideEffects\`.
+  
+  **Build Speed**
+  - Use \`thread-loader\`.
+  - Cache with \`cacheDirectory\`.
+  
+  **Analysis**
+  Use \`webpack-bundle-analyzer\` to inspect.
+  `,
+    },
+    {
+      id: 6,
+      title: "Containerizing Node Apps with Docker",
+      date: "November 30, 2024",
+      img: imgDocker,
+      content: `
+  **Dockerfile Basics**
+  \`\`\`dockerfile
+  FROM node:16-alpine
+  WORKDIR /app
+  COPY package*.json ./
+  RUN npm install
+  COPY . .
+  CMD ["npm", "start"]
+  \`\`\`
+  
+  **Multi-stage**
+  Use builder pattern to reduce final image size.
+  
+  **Deployment**
+  Push to Docker Hub and run with \`docker run\`.
+  `,
+    },
+  ];
+  
+
+
 export {
     navLinks,
     services,
@@ -370,4 +464,5 @@ export {
     testimonials,
     projects,
     tools,
+    posts,
 };

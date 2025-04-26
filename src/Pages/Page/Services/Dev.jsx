@@ -6,6 +6,8 @@ import {
   FaAndroid,
   FaApple,
   FaDesktop,
+  FaLaptopCode,
+  FaDraftingCompass
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -25,8 +27,7 @@ const Dev = () => {
             <FaReact className="text-6xl mb-4 text-green-600" />
           </motion.div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-pink-600">Mobile App</span> &amp;{" "}
-            <span className="text-green-600">Web Development</span>
+            <span className="text-pink-600">No-Code Mobile App</span> &amp; <span className="text-green-600">Web Development</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8">
             Cutting‑edge solutions that bring your digital vision to life.
@@ -72,9 +73,47 @@ const Dev = () => {
                 {React.cloneElement(icon, {
                   className: "text-5xl text-green-600",
                 })}
-                <span className="mt-2 text-lg font-medium text-white">
-                  {label}
-                </span>
+                <span className="mt-2 text-lg font-medium text-white">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* No-Code App Section */}
+      <section className="py-16 bg-gradient-to-r from-[#0f6ca5] to-[#640e9e] text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+            No-Code App &amp; Web Development
+          </h2>
+          <p className="text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
+            Build and deploy applications and websites with no-code tools,
+            achieving rapid time-to-market and reducing development complexity.
+          </p>
+          <div className="flex flex-wrap justify-center gap-8 mt-8">
+            {[
+              {
+                icon: <FaDraftingCompass />, 
+                label: "Visual Development",
+                desc: "Drag-and-drop interfaces to create apps and sites without code.",
+              },
+              {
+                icon: <FaLaptopCode />, 
+                label: "Custom Logic",
+                desc: "Implement workflows and automations visually.",
+              },
+              {
+                icon: <FaMobileAlt />, 
+                label: "Cross-Platform",
+                desc: "One solution for web, iOS, and Android using no-code builders.",
+              },
+            ].map(({ icon, label, desc }) => (
+              <div key={label} className="flex flex-col items-center max-w-xs">
+                {React.cloneElement(icon, {
+                  className: "text-5xl text-green-600 mb-2",
+                })}
+                <h3 className="text-xl font-semibold mb-2">{label}</h3>
+                <p className="text-gray-200 text-center">{desc}</p>
               </div>
             ))}
           </div>
@@ -88,7 +127,7 @@ const Dev = () => {
             Our Development Solutions
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
+            {[ // existing services array ]
               {
                 icon: <FaMobileAlt />,
                 title: "Mobile App Development",
@@ -176,12 +215,9 @@ const Dev = () => {
       {/* Call‑to‑Action Section */}
       <section className="bg-gradient-to-r from-[#38B6FF] to-purple-600 text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {"Let's"} Build Something Amazing Together
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{`Let's`} Build Something Amazing Together</h2>
           <p className="text-lg md:text-xl mb-8">
-            Contact us today to discuss your project, and see how we can turn
-            your vision into reality.
+            Contact us today to discuss your project, and see how we can turn your vision into reality.
           </p>
           <button
             onClick={() => navigate("/contact-page")}

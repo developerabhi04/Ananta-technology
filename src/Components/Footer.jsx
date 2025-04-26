@@ -62,8 +62,8 @@ const Footer = () => {
         {/* Contact Details & Social Media */}
         <div>
           <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-          <p className="text-gray-400 text-sm py-1"><Phone sx={{ fontSize: 18, color: '#915EFF' }} /> +1 234 567 890</p>
-          <p className="text-gray-400 text-sm py-1"><Email sx={{ fontSize: 18, color: '#915EFF' }} /> work.anantatechnologies@gmail.com</p>
+          <p className="text-gray-400 text-sm py-1"><Phone sx={{ fontSize: 18, color: '#915EFF' }} /> +1 95 9951 6256</p>
+          <p className="text-gray-400 text-sm py-1"><Email sx={{ fontSize: 18, color: '#915EFF' }} /> support@anantatechnology.com</p>
           <p className="text-gray-400 text-sm py-1"><LocationCity sx={{ fontSize: 18, color: '#915EFF' }} /> RZB-214 Old Meheauli road, Raj Nagar, New Delhi, Delhi, 110045, India.</p>
           {/* <div className="flex justify-center sm:justify-start gap-4 mt-4">
             <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 text-2xl">🌐</a>
@@ -80,7 +80,7 @@ const Footer = () => {
           Have a project in mind? {"Let's"} build it together.
         </h3>
         <button className="mt-4 px-8 py-3 bg-gradient-to-r from-[#915EFF] to-purple-600 text-white rounded-lg font-semibold text-lg shadow-lg hover:opacity-90 transition-all duration-300"
-          onClick={() => url('/quote-page')}
+          onClick={() => url('/contact-page')}
         >
           Get a Quote
         </button>
